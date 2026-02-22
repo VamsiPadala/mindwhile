@@ -45,58 +45,62 @@ export const Navbar = () => {
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <img
-            src="https://res.cloudinary.com/kits/image/upload/v1771698132/mindwhile_log_lb2qxs.png"
-            alt="Mindwhile IT Solutions Pvt.Ltd Logo"
-            className="h-10 md:h-12 w-auto object-contain drop-shadow-sm"
-          />
+          <div className="bg-white/95 dark:bg-white p-1.5 md:p-2 rounded-xl shadow-md border border-white/20 transition-transform hover:scale-105">
+            <img
+              src="https://res.cloudinary.com/kits/image/upload/v1771698132/mindwhile_log_lb2qxs.png"
+              alt="Mindwhile IT Solutions Pvt.Ltd Logo"
+              className="h-8 md:h-10 w-auto object-contain drop-shadow-sm"
+            />
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-2 py-1.5 rounded-full border border-black/5 dark:border-white/10 shadow-sm transition-transform hover:scale-[1.01]">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
-              className={`relative font-medium transition-colors duration-300 ${location.pathname === link.path
-                ? 'text-primary'
-                : 'text-muted-foreground hover:text-foreground'
+              className={`relative font-medium text-sm px-4 py-2 transition-all duration-300 rounded-full ${location.pathname === link.path
+                ? 'text-primary font-semibold'
+                : 'text-foreground/70 hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5'
                 }`}
             >
-              {link.name}
               {location.pathname === link.path && (
                 <motion.div
                   layoutId="activeNav"
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-accent"
+                  className="absolute inset-0 bg-primary/10 rounded-full"
                 />
               )}
+              <span className="relative z-10">{link.name}</span>
             </Link>
           ))}
         </nav>
 
         {/* Right Actions */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 md:gap-4">
           <Button
             variant="ghost"
             size="icon"
             onClick={() => setIsDark(!isDark)}
-            className="rounded-full"
+            className="rounded-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-black/5 dark:border-white/10 shadow-sm hover:bg-white dark:hover:bg-slate-800 text-foreground transition-all duration-300 hover:scale-105"
           >
             {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </Button>
 
           <Link to="/contact" className="hidden md:block">
-            <Button className="btn-primary">Get Started</Button>
+            <Button className="btn-primary shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-0.5 transition-all duration-300">
+              Get Started
+            </Button>
           </Link>
 
           {/* Mobile Menu Button */}
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="md:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-black/5 dark:border-white/10 shadow-sm rounded-full text-foreground hover:bg-white dark:hover:bg-slate-800 transition-all hover:scale-105"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         </div>
       </div>

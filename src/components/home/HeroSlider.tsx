@@ -125,7 +125,7 @@ export const HeroSlider = () => {
                     </Button>
                   </Link>
                   <Link to="/services">
-                    <Button variant="outline" className="btn-secondary text-lg px-8 py-6 border-white/30 text-white hover:bg-white hover:text-black rounded-2xl">
+                    <Button variant="outline" className="btn-secondary text-lg px-8 py-6 border border-white/40 dark:border-white/20 text-slate-900 dark:text-white hover:bg-white hover:text-primary dark:hover:bg-slate-800 shadow-xl rounded-2xl">
                       Explore Services
                     </Button>
                   </Link>
