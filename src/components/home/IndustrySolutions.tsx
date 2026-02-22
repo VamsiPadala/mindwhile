@@ -90,24 +90,24 @@ export const IndustrySolutions = () => {
               }}
               className={`group relative [perspective:1500px] ${industry.colSpan}`}
             >
-              <div className="relative w-full h-full transition-transform duration-700 md:duration-1000 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-xl hover:shadow-2xl rounded-[2.5rem]">
+              <div className="relative w-full h-full transition-transform duration-700 md:duration-1000 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-xl hover:shadow-2xl rounded-3xl md:rounded-[2.5rem]">
 
                 {/*
                   =================
                   FRONT FACE
                   =================
                 */}
-                <div className="absolute inset-0 glass rounded-[2.5rem] p-8 md:p-10 flex flex-col items-center justify-center overflow-hidden border border-border/40 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] z-20 bg-background text-center">
+                <div className="absolute inset-0 glass rounded-3xl md:rounded-[2.5rem] p-6 md:p-10 flex flex-col items-center justify-center overflow-hidden border border-border/40 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] z-20 bg-background text-center">
                   <div className={`absolute inset-0 bg-gradient-to-br ${industry.gradient} opacity-[0.03] group-hover:opacity-0 transition-opacity duration-500`} />
 
                   {/* Deep watermark background */}
-                  <industry.icon className="absolute -bottom-10 -left-10 w-64 h-64 opacity-[0.03] text-foreground pointer-events-none group-hover:scale-110 transition-transform duration-700" />
+                  <industry.icon className="absolute -bottom-6 -left-6 md:-bottom-10 md:-left-10 w-40 h-40 md:w-64 md:h-64 opacity-[0.03] text-foreground pointer-events-none group-hover:scale-110 transition-transform duration-700" />
 
-                  <div className={`w-20 h-20 rounded-[1.5rem] bg-secondary/80 dark:bg-slate-900/60 backdrop-blur-xl border border-white/10 flex items-center justify-center shadow-lg mb-6 group-hover:scale-110 transition-transform duration-500`}>
-                    <industry.icon className={`w-10 h-10 ${industry.color}`} />
+                  <div className={`w-16 h-16 md:w-20 md:h-20 rounded-2xl md:rounded-[1.5rem] bg-secondary/80 dark:bg-slate-900/60 backdrop-blur-xl border border-white/10 flex items-center justify-center shadow-lg mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-500`}>
+                    <industry.icon className={`w-8 h-8 md:w-10 md:h-10 ${industry.color}`} />
                   </div>
 
-                  <h3 className="text-2xl md:text-3xl font-bold text-foreground transition-transform duration-500">
+                  <h3 className="text-xl md:text-3xl font-bold text-foreground transition-transform duration-500">
                     {industry.title}
                   </h3>
                 </div>
@@ -117,25 +117,25 @@ export const IndustrySolutions = () => {
                   BACK FACE
                   =================
                 */}
-                <div className="absolute inset-0 glass rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-center overflow-hidden border border-border/40 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] [transform:rotateY(180deg)] z-10 bg-white/50 dark:bg-slate-900/80 backdrop-blur-3xl">
+                <div className="absolute inset-0 glass rounded-3xl md:rounded-[2.5rem] p-6 md:p-10 flex flex-col justify-center overflow-hidden border border-border/40 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] [transform:rotateY(180deg)] z-10 bg-white/50 dark:bg-slate-900/80 backdrop-blur-3xl">
                   {/* Rich back face gradients */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${industry.gradient} opacity-[0.08]`} />
-                  <div className={`absolute -right-20 -top-20 w-64 h-64 bg-gradient-to-br ${industry.gradient} opacity-20 blur-[80px] rounded-full`} />
+                  <div className={`absolute -right-10 -top-10 md:-right-20 md:-top-20 w-40 h-40 md:w-64 md:h-64 bg-gradient-to-br ${industry.gradient} opacity-20 blur-[80px] rounded-full`} />
 
-                  <div className="relative z-10 flex justify-between items-start mb-6">
-                    <div className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-white/70 dark:bg-slate-900/80 backdrop-blur-xl border border-white/20 flex items-center justify-center shadow-lg`}>
-                      <industry.icon className={`w-7 h-7 md:w-8 md:h-8 ${industry.color}`} />
+                  <div className="relative z-10 flex justify-between items-start mb-4 md:mb-6">
+                    <div className={`w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-white/70 dark:bg-slate-900/80 backdrop-blur-xl border border-white/20 flex items-center justify-center shadow-lg`}>
+                      <industry.icon className={`w-6 h-6 md:w-8 md:h-8 ${industry.color}`} />
                     </div>
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full glass flex items-center justify-center bg-white/40 dark:bg-slate-800/40">
-                      <ArrowUpRight className={`w-4 h-4 md:w-5 md:h-5 ${industry.color}`} />
+                    <div className="w-8 h-8 md:w-12 md:h-12 rounded-full glass flex items-center justify-center bg-white/40 dark:bg-slate-800/40">
+                      <ArrowUpRight className={`w-3 h-3 md:w-5 md:h-5 ${industry.color}`} />
                     </div>
                   </div>
 
-                  <div className="relative z-10 flex-1 flex flex-col justify-end pb-2">
-                    <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">
+                  <div className="relative z-10 flex-1 flex flex-col justify-end pb-1 md:pb-2">
+                    <h3 className="text-lg md:text-2xl font-bold text-foreground mb-2 md:mb-3">
                       {industry.title}
                     </h3>
-                    <p className="text-muted-foreground/90 leading-relaxed text-sm md:text-base font-medium">
+                    <p className="text-muted-foreground/90 leading-relaxed text-xs md:text-base font-medium">
                       {industry.description}
                     </p>
                   </div>

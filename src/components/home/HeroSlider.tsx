@@ -45,91 +45,105 @@ export const HeroSlider = () => {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Background Slides */}
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         <motion.div
           key={currentSlide}
-          initial={{ opacity: 0, scale: 1.1 }}
+          initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1.5 }}
-          className="absolute inset-0"
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+          className="absolute inset-0 z-0"
         >
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${slides[currentSlide].image})` }}
           />
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/70 to-transparent" />
+          {/* Enhanced Overlay for premium dark vibe */}
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </motion.div>
       </AnimatePresence>
 
       {/* Content */}
-      <div className="relative h-full container mx-auto px-4 flex items-center pt-20">
-        <div className="max-w-[700px] w-full">
+      <div className="relative z-10 h-full container mx-auto px-4 flex items-center pt-20">
+        <div className="max-w-[750px] w-full relative">
+
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              exit={{ opacity: 0, y: -40, filter: "blur(10px)" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="relative"
             >
+              {/* Decorative floating elements behind card */}
+              <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary/20 rounded-full blur-[50px] animate-pulse-glow" />
+              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-accent/20 rounded-full blur-[50px] animate-pulse-glow" style={{ animationDelay: '1s' }} />
+
               {/* Premium Glass Card */}
-              <div className="p-8 md:p-10 rounded-[2rem] backdrop-blur-xl border border-white/10 shadow-2xl bg-slate-900/80 dark:bg-slate-900/85 transform transition-all duration-700 hover:shadow-primary/20">
-                <motion.span
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.2, type: "spring" }}
-                  className="inline-block px-4 py-1.5 rounded-full bg-primary/90 text-white font-semibold tracking-wide mb-5 shadow-sm text-sm"
-                >
-                  IT Solutions & Services
-                </motion.span>
+              <div className="p-8 md:p-10 rounded-[2rem] relative overflow-hidden bg-card/60 backdrop-blur-2xl border border-border/50 shadow-2xl hover:border-primary/30 transition-all duration-700 group">
 
-                <motion.h1
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3, duration: 0.8 }}
-                  className="text-5xl md:text-6xl font-black text-white mb-4 leading-[1.1] drop-shadow-md"
-                >
-                  {slides[currentSlide].title}
-                </motion.h1>
+                {/* Diagonal shine effect */}
+                <div className="absolute -inset-full top-0 block h-full w-1/2 -skew-x-12 transform bg-gradient-to-r from-transparent via-foreground/5 to-transparent opacity-40 group-hover:left-[150%] left-[-100%] transition-all duration-1000 z-0" />
 
-                <motion.p
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.4, duration: 0.8 }}
-                  className="text-xl md:text-3xl font-semibold mb-5 text-primary drop-shadow"
-                >
-                  {slides[currentSlide].subtitle}
-                </motion.p>
+                <div className="relative z-10">
+                  <motion.span
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.2, type: "spring" }}
+                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 text-primary font-bold tracking-wide mb-6 shadow-sm text-sm uppercase"
+                  >
+                    <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                    IT Solutions & Services
+                  </motion.span>
 
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5, duration: 0.8 }}
-                  className="text-white/90 text-lg font-medium mb-8 max-w-lg leading-relaxed"
-                >
-                  {slides[currentSlide].description}
-                </motion.p>
+                  <motion.h1
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3, duration: 0.8 }}
+                    className="text-4xl md:text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-foreground via-foreground to-foreground/60 mb-4 leading-[1.1]"
+                  >
+                    {slides[currentSlide].title}
+                  </motion.h1>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6, type: "spring" }}
-                  className="flex flex-wrap gap-4"
-                >
-                  <Link to="/contact">
-                    <Button className="btn-primary group text-base px-6 py-6 h-auto rounded-2xl shadow-primary/30 shadow-lg font-semibold bg-primary hover:bg-primary/90 text-white">
-                      Start Your Journey
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Button>
-                  </Link>
-                  <Link to="/services">
-                    <Button variant="outline" className="btn-secondary text-base px-6 py-6 h-auto border-none bg-white text-slate-900 hover:bg-white/90 shadow-lg rounded-2xl font-semibold">
-                      Explore Services
-                    </Button>
-                  </Link>
-                </motion.div>
+                  <motion.p
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.4, duration: 0.8 }}
+                    className="text-xl md:text-2xl font-bold mb-5 text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent"
+                  >
+                    {slides[currentSlide].subtitle}
+                  </motion.p>
+
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5, duration: 0.8 }}
+                    className="text-muted-foreground text-base md:text-lg font-medium mb-8 max-w-lg leading-relaxed"
+                  >
+                    {slides[currentSlide].description}
+                  </motion.p>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6, type: "spring" }}
+                    className="flex flex-wrap gap-4"
+                  >
+                    <Link to="/contact">
+                      <Button className="btn-primary group text-base px-6 py-6 h-auto rounded-xl shadow-primary/30 shadow-lg font-semibold bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white border-0">
+                        Start Your Journey
+                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </Button>
+                    </Link>
+                    <Link to="/services">
+                      <Button variant="outline" className="text-base px-6 py-6 h-auto border border-border/50 bg-background/50 hover:bg-background/80 text-foreground shadow-lg rounded-xl font-semibold backdrop-blur-sm transition-all">
+                        Explore Services
+                      </Button>
+                    </Link>
+                  </motion.div>
+                </div>
               </div>
             </motion.div>
           </AnimatePresence>

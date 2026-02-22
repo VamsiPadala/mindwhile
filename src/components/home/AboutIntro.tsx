@@ -11,7 +11,10 @@ const highlights = [
 
 export const AboutIntro = () => {
   return (
-    <section className="py-24 overflow-hidden">
+    <section className="py-24 overflow-hidden relative bg-card/10">
+      {/* Dynamic Background Glows */}
+      <div className="absolute top-1/2 -left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[100px] pointer-events-none mix-blend-screen" />
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
@@ -21,16 +24,17 @@ export const AboutIntro = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-bold tracking-widest uppercase mb-4 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               About Mindwhile
             </span>
-            <h2 className="section-title mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
               Transforming the Way
-              <span className="gradient-text block">Services are Offered</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent block mt-1">Services are Offered</span>
             </h2>
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              Beginning in 2021, Mindwhile changed the way professional services are offered. 
-              We focus on building long lasting relationships and help our customers succeed 
+              Beginning in 2021, Mindwhile changed the way professional services are offered.
+              We focus on building long lasting relationships and help our customers succeed
               over building our bottom line. Our clients have continuously ranked us a top vendor.
             </p>
 
@@ -78,36 +82,37 @@ export const AboutIntro = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="relative lg:pl-10"
           >
-            <div className="relative">
+            <div className="relative group">
               {/* Main Image */}
               <motion.div
-                animate={{ y: [0, -15, 0] }}
+                animate={{ y: [-5, 5, -5] }}
                 transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                className="relative z-10"
+                className="relative z-10 transition-transform duration-700 group-hover:scale-[1.02] group-hover:rotate-1"
               >
                 <img
                   src={aboutTeam}
                   alt="Mindwhile Team"
-                  className="rounded-3xl shadow-2xl w-full object-cover"
+                  className="rounded-[2.5rem] shadow-2xl w-full object-cover border border-white/5"
                 />
+                <div className="absolute inset-0 rounded-[2.5rem] ring-1 ring-inset ring-white/10" />
               </motion.div>
 
               {/* Decorative Elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-primary to-accent rounded-2xl -z-10 animate-pulse-glow" />
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-br from-accent to-primary/50 rounded-full -z-10 opacity-50 blur-xl" />
-              
+              <div className="absolute -top-6 -right-6 w-32 h-32 bg-gradient-to-br from-primary to-accent rounded-3xl -z-10 animate-pulse-glow" />
+              <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-gradient-to-br from-accent to-primary/50 rounded-full -z-10 opacity-60 blur-2xl" />
+
               {/* Stats Card */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.5, duration: 0.5 }}
-                className="absolute -bottom-8 -left-8 glass rounded-2xl p-6 z-20"
+                transition={{ delay: 0.5, duration: 0.5, type: 'spring' }}
+                className="absolute -bottom-6 md:-bottom-8 -left-2 md:-left-12 glass rounded-2xl md:rounded-3xl p-4 md:p-8 z-20 border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] backdrop-blur-xl bg-card/60 group-hover:-translate-y-2 transition-transform duration-500"
               >
-                <div className="text-3xl font-bold gradient-text mb-1">Since 2021</div>
-                <p className="text-muted-foreground text-sm">Delivering Excellence</p>
+                <div className="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent mb-1 md:mb-2 drop-shadow-sm">Since 2021</div>
+                <p className="text-foreground/80 font-medium text-[10px] md:text-base tracking-wide uppercase">Delivering Excellence</p>
               </motion.div>
             </div>
           </motion.div>

@@ -54,8 +54,9 @@ const Contact = () => {
 
       <main className="pt-24">
         {/* Hero Section */}
-        <section className="py-20 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
+        <section className="py-20 relative overflow-hidden bg-background">
+          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
+          <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[100px] pointer-events-none mix-blend-screen" />
           <div className="container mx-auto px-4 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -79,18 +80,21 @@ const Contact = () => {
         </section>
 
         {/* Contact Form & Info */}
-        <section className="py-20">
+        <section className="py-20 relative z-10">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-              {/* Contact Form */}
+
+              {/* Contact Info (Moved to left for better reading flow if desired, or keep form left. Let's keep info left, form right, or simply upgrade inplace). Keeping Form Left: */}
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
+                className="relative group"
               >
-                <div className="glass rounded-3xl p-8 md:p-10">
-                  <h2 className="text-2xl font-bold text-foreground mb-2">Send us a Message</h2>
+                <div className="absolute -inset-1 bg-gradient-to-br from-primary/30 to-accent/30 rounded-[2.5rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                <div className="glass rounded-[2rem] p-8 md:p-10 relative bg-card/80 backdrop-blur-3xl border border-white/10 shadow-2xl">
+                  <h2 className="text-3xl font-bold text-foreground mb-2">Send us a Message</h2>
                   <p className="text-muted-foreground mb-8">
                     Fill out the form below and we'll get back to you as soon as possible.
                   </p>
@@ -210,40 +214,42 @@ const Contact = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="flex flex-col"
+                className="flex flex-col h-full justify-center lg:pl-8"
               >
-                <h2 className="text-2xl font-bold text-foreground mb-2">Get in Touch</h2>
-                <p className="text-muted-foreground mb-8">
+                <h2 className="text-3xl font-bold text-foreground mb-2">Get in Touch</h2>
+                <p className="text-muted-foreground mb-8 text-lg">
                   Feel free to reach out through any of the following channels.
                 </p>
 
-                <div className="space-y-6 mb-8">
+                <div className="space-y-6 mb-10">
                   <motion.div
-                    whileHover={{ x: 5 }}
-                    className="flex items-start gap-4 p-6 glass rounded-2xl"
+                    whileHover={{ x: 8 }}
+                    className="flex items-center gap-6 p-6 glass rounded-2xl group border border-white/5 hover:border-blue-500/30 transition-all duration-300 relative overflow-hidden"
                   >
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shrink-0">
-                      <MapPin className="w-7 h-7 text-primary-foreground" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-500">
+                      <MapPin className="w-8 h-8 text-white drop-shadow-md" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-foreground mb-1">Our Office</h4>
+                      <h4 className="font-bold text-foreground mb-1 text-lg">Our Office</h4>
                       <p className="text-muted-foreground">
                         4th Floor, Mayuri Tech Park,<br />
-                        Mangalagiri, Andhra Pradesh 522503
+                        Mangalagiri, AP 522503
                       </p>
                     </div>
                   </motion.div>
 
                   <motion.div
-                    whileHover={{ x: 5 }}
-                    className="flex items-start gap-4 p-6 glass rounded-2xl"
+                    whileHover={{ x: 8 }}
+                    className="flex items-center gap-6 p-6 glass rounded-2xl group border border-white/5 hover:border-purple-500/30 transition-all duration-300 relative overflow-hidden"
                   >
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shrink-0">
-                      <Mail className="w-7 h-7 text-primary-foreground" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500/0 via-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-500">
+                      <Mail className="w-8 h-8 text-white drop-shadow-md" />
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-1">Email Us</h4>
-                      <a href="mailto:info@mindwhile.com" className="text-primary hover:underline text-lg">
+                    <div className="flex flex-col">
+                      <h4 className="font-bold text-foreground mb-1 text-lg">Email Us</h4>
+                      <a href="mailto:info@mindwhile.com" className="text-primary group-hover:text-purple-500 transition-colors text-lg font-medium">
                         info@mindwhile.com
                       </a>
                       <p className="text-sm text-muted-foreground mt-1">We reply within 24 hours</p>
@@ -251,15 +257,16 @@ const Contact = () => {
                   </motion.div>
 
                   <motion.div
-                    whileHover={{ x: 5 }}
-                    className="flex items-start gap-4 p-6 glass rounded-2xl"
+                    whileHover={{ x: 8 }}
+                    className="flex items-center gap-6 p-6 glass rounded-2xl group border border-white/5 hover:border-emerald-500/30 transition-all duration-300 relative overflow-hidden"
                   >
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shrink-0">
-                      <Phone className="w-7 h-7 text-primary-foreground" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/0 via-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-500">
+                      <Phone className="w-8 h-8 text-white drop-shadow-md" />
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-1">Call Us</h4>
-                      <a href="tel:+919494022475" className="text-primary hover:underline text-lg font-medium">
+                    <div className="flex flex-col">
+                      <h4 className="font-bold text-foreground mb-1 text-lg">Call Us</h4>
+                      <a href="tel:+919494022475" className="text-primary group-hover:text-emerald-500 transition-colors text-lg font-medium font-mono">
                         +91 94940 22475
                       </a>
                       <p className="text-sm text-muted-foreground mt-1">Mon-Sat, 9am-6pm IST</p>

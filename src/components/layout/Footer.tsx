@@ -54,11 +54,11 @@ export const Footer = () => {
           <div>
             <h4 className="font-semibold text-lg mb-6">Services</h4>
             <ul className="space-y-3">
-              <li className="text-background/70">Website Development</li>
-              <li className="text-background/70">UI/UX Design</li>
-              <li className="text-background/70">Mobile App Development</li>
-              <li className="text-background/70">Digital Marketing</li>
-              <li className="text-background/70">SEO Services</li>
+              <li><Link to="/services?view=website" className="text-background/70 hover:text-primary transition-colors block">Website Development</Link></li>
+              <li><Link to="/services?view=ui-ux" className="text-background/70 hover:text-primary transition-colors block">UI/UX Design</Link></li>
+              <li><Link to="/services?view=mobile" className="text-background/70 hover:text-primary transition-colors block">Mobile App Development</Link></li>
+              <li><Link to="/services?view=marketing" className="text-background/70 hover:text-primary transition-colors block">Digital Marketing</Link></li>
+              <li><Link to="/services?view=seo" className="text-background/70 hover:text-primary transition-colors block">SEO Services</Link></li>
             </ul>
           </div>
 
