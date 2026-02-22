@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useRef, useState } from 'react';
 import { useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Navbar } from '@/components/layout/Navbar';
@@ -19,7 +19,8 @@ import {
   Cloud,
   Shield,
   Cpu,
-  GitBranch
+  GitBranch,
+  Sparkles
 } from 'lucide-react';
 
 const services = [
@@ -67,6 +68,7 @@ const services = [
     features: ['Social Media Marketing', 'PPC Campaigns', 'Content Strategy', 'Analytics'],
     techStack: ['Google Ads', 'Meta Ads', 'Analytics', 'HubSpot', 'Mailchimp'],
     gradient: 'from-orange-500 to-red-500',
+    isPremium: true,
   },
   {
     icon: Search,
@@ -76,6 +78,7 @@ const services = [
     features: ['On-Page SEO', 'Technical SEO', 'Link Building', 'Content Optimization'],
     techStack: ['Ahrefs', 'SEMrush', 'Moz', 'Google Search Console', 'Screaming Frog'],
     gradient: 'from-teal-500 to-cyan-500',
+    isPremium: true,
   },
 ];
 
@@ -132,6 +135,7 @@ const cardVariants = {
 const Services = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [showPremiumModal, setShowPremiumModal] = useState<any>(null);
 
   return (
     <div className="min-h-screen">
@@ -175,9 +179,11 @@ const Services = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-100px' }}
                   transition={{ duration: 0.8 }}
-                  className={`flex flex-col lg:flex-row items-center gap-10 lg:gap-12 ${isEven ? '' : 'lg:flex-row-reverse'
+                  className={`relative flex flex-col lg:flex-row items-center gap-10 lg:gap-12 ${isEven ? '' : 'lg:flex-row-reverse'
                     }`}
                 >
+                  {/* Removed tag from here */}
+
                   {/* Content Side */}
                   <div className="w-full lg:w-7/12 space-y-6">
                     <div className="inline-flex items-center gap-4">
@@ -217,7 +223,22 @@ const Services = () => {
 
                   {/* Visual Side */}
                   <div className="w-full lg:w-5/12 relative">
-                    <div className="glass rounded-3xl p-6 relative overflow-hidden flex flex-col justify-center items-center group shadow-xl transition-all duration-500 hover:shadow-primary/20 hover:border-primary/20 z-0 h-auto">
+                    <div className={`glass rounded-3xl p-6 relative flex flex-col justify-center items-center group transition-all duration-500 z-0 h-auto ${service.isPremium ? 'shadow-2xl shadow-primary/20 border-2 border-primary/50' : 'overflow-hidden shadow-xl hover:shadow-primary/20 hover:border-primary/20'}`}>
+
+                      {service.isPremium && (
+                        <div
+                          onClick={(e) => { e.stopPropagation(); setShowPremiumModal(service); }}
+                          className="absolute -top-4 -left-3 lg:-left-4 lg:-top-4 px-4 md:px-6 py-2 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 text-white text-[10px] md:text-xs font-bold uppercase tracking-widest shadow-xl flex items-center gap-2 cursor-pointer
+                                     before:content-[''] before:absolute before:top-full before:left-0 before:border-t-[12px] before:border-t-amber-800 before:border-l-[12px] lg:before:border-l-[16px] before:border-l-transparent before:border-r-0 z-[100] hover:scale-105 transition-all rounded-r-md rounded-tr-md"
+                        >
+                          <Sparkles className="w-4 h-4" />
+                          Most Demanded
+                        </div>
+                      )}
+
+                      {service.isPremium && (
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-3xl pointer-events-none" />
+                      )}
                       {/* Abstract Backgrounds */}
                       <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-[0.03] group-hover:opacity-10 transition-opacity duration-500`} />
                       <div className={`absolute -right-10 -top-10 w-48 h-48 bg-gradient-to-br ${service.gradient} opacity-10 rounded-full blur-3xl group-hover:opacity-20 transition-opacity duration-700 mix-blend-screen`} />
@@ -322,6 +343,57 @@ const Services = () => {
       </main>
 
       <Footer />
+
+      <AnimatePresence>
+        {showPremiumModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm"
+            onClick={() => setShowPremiumModal(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-lg overflow-hidden border border-white/10 bg-card/95 backdrop-blur-xl text-card-foreground shadow-2xl rounded-3xl"
+            >
+              <div className={`h-32 w-full bg-gradient-to-br ${showPremiumModal.gradient} flex items-center justify-center relative overflow-hidden`}>
+                <div className="absolute inset-0 bg-black/20" />
+                <showPremiumModal.icon className="w-16 h-16 text-white relative z-10 drop-shadow-lg" />
+              </div>
+              <div className="p-8">
+                <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 text-xs font-bold tracking-wider text-white uppercase rounded-full bg-gradient-to-r from-amber-400 to-amber-600 shadow-md">
+                  <Sparkles className="w-3 h-3" />
+                  Premium Service
+                </div>
+                <h3 className="mb-3 text-2xl font-bold">{showPremiumModal.title}</h3>
+                <p className="mb-6 text-muted-foreground leading-relaxed">{showPremiumModal.detailedDescription}</p>
+                <div className="space-y-4">
+                  <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">Why Choose Us</h4>
+                  <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                    {showPremiumModal.features.map((feature: string, idx: number) => (
+                      <li key={idx} className="flex items-center gap-2 text-sm font-medium text-foreground/80">
+                        <CheckCircle className="w-4 h-4 text-primary shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="mt-8 flex justify-end border-t border-border/50 pt-6">
+                  <Link to="/contact">
+                    <Button onClick={() => setShowPremiumModal(null)} className="btn-primary rounded-xl px-6">
+                      Get Started
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

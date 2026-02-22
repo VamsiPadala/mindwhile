@@ -35,7 +35,7 @@ export const HeroSlider = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 6000);
+    }, 15000);
     return () => clearInterval(interval);
   }, []);
 
@@ -64,8 +64,8 @@ export const HeroSlider = () => {
       </AnimatePresence>
 
       {/* Content */}
-      <div className="relative h-full container mx-auto px-4 flex items-center">
-        <div className="max-w-2xl">
+      <div className="relative h-full container mx-auto px-4 flex items-center pt-20">
+        <div className="max-w-[700px] w-full">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
@@ -75,12 +75,12 @@ export const HeroSlider = () => {
               transition={{ duration: 0.8 }}
             >
               {/* Premium Glass Card */}
-              <div className="glass p-8 md:p-14 rounded-3xl backdrop-blur-2xl border-white/20 shadow-2xl bg-white/10 dark:bg-slate-900/40 transform transition-all duration-700 hover:shadow-primary/30">
+              <div className="p-8 md:p-10 rounded-[2rem] backdrop-blur-xl border border-white/10 shadow-2xl bg-slate-900/80 dark:bg-slate-900/85 transform transition-all duration-700 hover:shadow-primary/20">
                 <motion.span
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.2, type: "spring" }}
-                  className="inline-block px-5 py-2 rounded-full bg-primary/90 text-white shadow-lg text-sm font-bold tracking-wider mb-6 border border-white/10"
+                  className="inline-block px-4 py-1.5 rounded-full bg-primary/90 text-white font-semibold tracking-wide mb-5 shadow-sm text-sm"
                 >
                   IT Solutions & Services
                 </motion.span>
@@ -89,7 +89,7 @@ export const HeroSlider = () => {
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3, duration: 0.8 }}
-                  className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-xl"
+                  className="text-5xl md:text-6xl font-black text-white mb-4 leading-[1.1] drop-shadow-md"
                 >
                   {slides[currentSlide].title}
                 </motion.h1>
@@ -98,7 +98,7 @@ export const HeroSlider = () => {
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.4, duration: 0.8 }}
-                  className="text-2xl md:text-3xl font-semibold mb-6 text-primary drop-shadow-md"
+                  className="text-xl md:text-3xl font-semibold mb-5 text-primary drop-shadow"
                 >
                   {slides[currentSlide].subtitle}
                 </motion.p>
@@ -107,7 +107,7 @@ export const HeroSlider = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5, duration: 0.8 }}
-                  className="text-white/90 text-lg md:text-xl font-medium mb-10 max-w-lg"
+                  className="text-white/90 text-lg font-medium mb-8 max-w-lg leading-relaxed"
                 >
                   {slides[currentSlide].description}
                 </motion.p>
@@ -116,16 +116,16 @@ export const HeroSlider = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6, type: "spring" }}
-                  className="flex flex-wrap gap-5"
+                  className="flex flex-wrap gap-4"
                 >
                   <Link to="/contact">
-                    <Button className="btn-primary group text-lg px-8 py-6 rounded-2xl shadow-primary/50 shadow-xl">
+                    <Button className="btn-primary group text-base px-6 py-6 h-auto rounded-2xl shadow-primary/30 shadow-lg font-semibold bg-primary hover:bg-primary/90 text-white">
                       Start Your Journey
-                      <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-2" />
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </Link>
                   <Link to="/services">
-                    <Button variant="outline" className="btn-secondary text-lg px-8 py-6 border border-white/40 dark:border-white/20 text-slate-900 dark:text-white hover:bg-white hover:text-primary dark:hover:bg-slate-800 shadow-xl rounded-2xl">
+                    <Button variant="outline" className="btn-secondary text-base px-6 py-6 h-auto border-none bg-white text-slate-900 hover:bg-white/90 shadow-lg rounded-2xl font-semibold">
                       Explore Services
                     </Button>
                   </Link>

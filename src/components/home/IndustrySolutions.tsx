@@ -11,14 +11,6 @@ import {
 
 const industries = [
   {
-    icon: Landmark,
-    title: 'Banking Solutions',
-    description: 'Secure, scalable fintech solutions for modern banking needs. Digital payments, core banking, and AI-driven fraud detection systems.',
-    gradient: 'from-blue-500 to-cyan-400',
-    color: 'text-blue-500',
-    colSpan: 'md:col-span-2 lg:col-span-3 h-[320px] md:h-[360px]',
-  },
-  {
     icon: HeartPulse,
     title: 'Healthcare Solutions',
     description: 'HIPAA-compliant healthcare software. Next-generation EMR/EHR systems, telemedicine platforms, and smart patient management.',
@@ -32,7 +24,7 @@ const industries = [
     description: 'Transforming EdTech. Immersive learning management systems, virtual classrooms, and interactive student engagement tools.',
     gradient: 'from-violet-500 to-purple-400',
     color: 'text-violet-500',
-    colSpan: 'md:col-span-2 lg:col-span-2 h-[320px] md:h-[360px]',
+    colSpan: 'md:col-span-2 lg:col-span-3 h-[320px] md:h-[360px]',
   },
   {
     icon: Factory,
@@ -40,7 +32,7 @@ const industries = [
     description: 'Industry 4.0 innovations. Seamless IoT integration, automated supply chains, and predictive maintenance.',
     gradient: 'from-orange-500 to-amber-400',
     color: 'text-orange-500',
-    colSpan: 'md:col-span-2 lg:col-span-2 h-[320px] md:h-[360px]',
+    colSpan: 'md:col-span-2 lg:col-span-3 h-[320px] md:h-[360px]',
   },
   {
     icon: Megaphone,
@@ -48,7 +40,7 @@ const industries = [
     description: 'Data-driven growth. Marketing automation, intelligent CRM systems, and real-time social analytics platforms.',
     gradient: 'from-emerald-500 to-teal-400',
     color: 'text-emerald-500',
-    colSpan: 'md:col-span-4 lg:col-span-2 h-[320px] md:h-[360px]',
+    colSpan: 'md:col-span-2 lg:col-span-3 h-[320px] md:h-[360px]',
   },
 ];
 

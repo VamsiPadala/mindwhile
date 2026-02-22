@@ -6,21 +6,24 @@ import { Briefcase, Clock, Users, Lightbulb } from 'lucide-react';
 const stats = [
   {
     icon: Briefcase,
-    value: 50,
-    suffix: '+',
+    value: 5,
+    textValue: undefined,
+    suffix: '',
     label: 'Projects Completed',
     gradient: 'from-blue-500 to-cyan-500',
   },
   {
     icon: Clock,
-    value: 2134,
-    suffix: '+',
+    value: 0,
+    suffix: '',
+    textValue: '∞',
     label: 'Hours Support',
     gradient: 'from-purple-500 to-pink-500',
   },
   {
     icon: Users,
     value: 100,
+    textValue: undefined,
     suffix: '+',
     label: 'Satisfied Clients',
     gradient: 'from-green-500 to-emerald-500',
@@ -28,6 +31,7 @@ const stats = [
   {
     icon: Lightbulb,
     value: 15,
+    textValue: undefined,
     suffix: '+',
     label: 'Smart Solutions',
     gradient: 'from-orange-500 to-amber-500',
@@ -126,7 +130,11 @@ export const StatsCounter = () => {
                 transition={{ delay: index * 0.15 + 0.3, duration: 0.5, type: 'spring' }}
                 className="text-4xl md:text-5xl font-bold text-white mb-2"
               >
-                <Counter value={stat.value} suffix={stat.suffix} isInView={isInView} />
+                {stat.textValue ? (
+                  <span>{stat.textValue}</span>
+                ) : (
+                  <Counter value={stat.value} suffix={stat.suffix} isInView={isInView} />
+                )}
               </motion.div>
               <p className="text-white/70 font-medium">{stat.label}</p>
             </motion.div>
