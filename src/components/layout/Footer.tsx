@@ -5,9 +5,9 @@ export const Footer = () => {
   return (
     <footer className="bg-foreground text-background">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10">
           {/* Company Info */}
-          <div>
+          <div className="lg:col-span-1">
             <div className="flex flex-col items-start leading-none gap-[2px] mb-6">
               <span className="font-sans font-extrabold text-2xl tracking-widest text-primary uppercase">MINDWHILE</span>
               <span className="font-sans font-semibold text-[10px] tracking-[0.15em] text-foreground/70 uppercase">IT Solutions Pvt.Ltd</span>
@@ -50,6 +50,53 @@ export const Footer = () => {
             </ul>
           </div>
 
+          {/* Our Products */}
+          <div>
+            <h4 className="font-semibold text-lg mb-6">Our Products</h4>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/products/schoolerp" className="text-background/70 hover:text-primary transition-colors">SchoolERP</Link>
+              </li>
+              <li>
+                <Link to="/products/jago" className="text-background/70 hover:text-primary transition-colors">Jago</Link>
+              </li>
+              <li>
+                <Link to="/products/attendance" className="text-background/70 hover:text-primary transition-colors">Attendance Manager</Link>
+              </li>
+              <li>
+                <Link to="/products/more" className="text-background/70 hover:text-primary transition-colors">More Products</Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Future Projects */}
+          <div>
+            <h4 className="font-semibold text-lg mb-6">Future Projects</h4>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/about" className="text-background/70 hover:text-primary transition-colors">Matrimony App</Link>
+              </li>
+              <li>
+                <Link to="/about" className="text-background/70 hover:text-primary transition-colors">Food Delivery App</Link>
+              </li>
+              <li>
+                <Link to="/about" className="text-background/70 hover:text-primary transition-colors">Real Estate Script</Link>
+              </li>
+              <li>
+                <Link to="/about" className="text-background/70 hover:text-primary transition-colors">Directory Script</Link>
+              </li>
+              <li>
+                <Link to="/about" className="text-background/70 hover:text-primary transition-colors">Job Portal</Link>
+              </li>
+              <li>
+                <Link to="/about" className="text-background/70 hover:text-primary transition-colors">E-commerce</Link>
+              </li>
+              <li>
+                <Link to="/about" className="text-background/70 hover:text-primary transition-colors">Marriage Biodata</Link>
+              </li>
+            </ul>
+          </div>
+
           {/* Services */}
           <div>
             <h4 className="font-semibold text-lg mb-6">Services</h4>
@@ -65,12 +112,15 @@ export const Footer = () => {
           {/* Contact Info */}
           <div>
             <h4 className="font-semibold text-lg mb-6">Contact Us</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                <span className="text-background/70 text-sm">
-                  4th Floor, Mayuri Tech Park,<br /> Mangalagiri, Andhra Pradesh 522503
-                </span>
+            <ul className="space-y-5">
+              <li>
+                <p className="text-background/50 text-xs font-semibold uppercase tracking-widest mb-2">Current Address</p>
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                  <span className="text-background/70 text-sm leading-relaxed">
+                    4th Floor, Mayuri Tech Park,<br /> Mangalagiri, Andhra Pradesh 522503
+                  </span>
+                </div>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary shrink-0" />
@@ -80,16 +130,26 @@ export const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary shrink-0" />
-                <a href="tel:+919494022475" className="text-background/70 hover:text-primary transition-colors">
-                  +91 94940 22475
+                <a href="tel:+917995526153" className="text-background/70 hover:text-primary transition-colors">
+                  +91 79955 26153
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-background/10 mt-12 pt-8 text-center text-background/50">
-          <p>&copy; {new Date().getFullYear()} Mindwhile IT Solutions Pvt. Ltd. All rights reserved.</p>
+        {/* Registered Address */}
+        <div className="border-t border-background/10 mt-12 pt-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-background/5 border border-background/10">
+              <MapPin className="w-4 h-4 text-primary shrink-0" />
+              <span className="text-background/50 text-xs font-semibold uppercase tracking-widest">Registered Office</span>
+            </div>
+            <span className="text-background/60 text-sm text-center">
+              D.No 4-1583/1, Podili Road, Darsi-523247, Prakasam, Andhra Pradesh, India
+            </span>
+          </div>
+          <p className="text-center text-background/50">&copy; Copyright {new Date().getFullYear()} Mindwhile IT Solutions Pvt. Ltd. All rights reserved.</p>
         </div>
       </div>
     </footer>

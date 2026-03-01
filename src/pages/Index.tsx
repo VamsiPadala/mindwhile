@@ -1,5 +1,6 @@
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { WhatsAppButton } from '@/components/WhatsAppButton';
 import { HeroSlider } from '@/components/home/HeroSlider';
 import { IndustrySolutions } from '@/components/home/IndustrySolutions';
 import { AboutIntro } from '@/components/home/AboutIntro';
@@ -12,6 +13,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
+      <WhatsAppButton />
       <main>
         <HeroSlider />
         <IndustrySolutions />

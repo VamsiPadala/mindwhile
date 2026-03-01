@@ -4,6 +4,7 @@ import { useInView } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { WhatsAppButton } from '@/components/WhatsAppButton';
 import { Button } from '@/components/ui/button';
 import {
   Code,
@@ -165,6 +166,7 @@ const Services = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
+      <WhatsAppButton />
 
       <main className="pt-24">
         {/* Hero Section */}
