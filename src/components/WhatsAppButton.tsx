@@ -4,7 +4,7 @@ import './WhatsAppButton.css';
 
 export const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(true);
-  const whatsappNumber = '919995526153';
+  const whatsappNumber = '917995526153';
   const whatsappMessage = 'Hello! I would like to know more about Mindwhile IT Solutions.';
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 

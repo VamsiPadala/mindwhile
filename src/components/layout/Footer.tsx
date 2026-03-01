@@ -45,6 +45,9 @@ export const Footer = () => {
                 <Link to="/services" className="text-background/70 hover:text-primary transition-colors">Services</Link>
               </li>
               <li>
+                <Link to="/products" className="text-background/70 hover:text-primary transition-colors">Products</Link>
+              </li>
+              <li>
                 <Link to="/contact" className="text-background/70 hover:text-primary transition-colors">Contact</Link>
               </li>
             </ul>
@@ -55,16 +58,16 @@ export const Footer = () => {
             <h4 className="font-semibold text-lg mb-6">Our Products</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/products/schoolerp" className="text-background/70 hover:text-primary transition-colors">SchoolERP</Link>
+                <Link to="/products" className="text-background/70 hover:text-primary transition-colors">School Management</Link>
               </li>
               <li>
-                <Link to="/products/jago" className="text-background/70 hover:text-primary transition-colors">Jago</Link>
+                <Link to="/products" className="text-background/70 hover:text-primary transition-colors">JagoPro</Link>
               </li>
               <li>
-                <Link to="/products/attendance" className="text-background/70 hover:text-primary transition-colors">Attendance Manager</Link>
+                <Link to="/products" className="text-background/70 hover:text-primary transition-colors">Raksha Assist</Link>
               </li>
               <li>
-                <Link to="/products/more" className="text-background/70 hover:text-primary transition-colors">More Products</Link>
+                <Link to="/products" className="text-background/70 hover:text-primary transition-colors">NeuroTalk</Link>
               </li>
             </ul>
           </div>
@@ -74,28 +77,29 @@ export const Footer = () => {
             <h4 className="font-semibold text-lg mb-6">Future Projects</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/about" className="text-background/70 hover:text-primary transition-colors">Matrimony App</Link>
+                <Link to="/products" className="text-background/70 hover:text-primary transition-colors">Matrimony App</Link>
               </li>
               <li>
-                <Link to="/about" className="text-background/70 hover:text-primary transition-colors">Food Delivery App</Link>
+                <Link to="/products" className="text-background/70 hover:text-primary transition-colors">Food Delivery App</Link>
               </li>
               <li>
-                <Link to="/about" className="text-background/70 hover:text-primary transition-colors">Real Estate Script</Link>
+                <Link to="/products" className="text-background/70 hover:text-primary transition-colors">Real Estate Script</Link>
               </li>
               <li>
-                <Link to="/about" className="text-background/70 hover:text-primary transition-colors">Directory Script</Link>
+                <Link to="/products" className="text-background/70 hover:text-primary transition-colors">Directory Script</Link>
               </li>
               <li>
-                <Link to="/about" className="text-background/70 hover:text-primary transition-colors">Job Portal</Link>
+                <Link to="/products" className="text-background/70 hover:text-primary transition-colors">Job Portal</Link>
               </li>
               <li>
-                <Link to="/about" className="text-background/70 hover:text-primary transition-colors">E-commerce</Link>
+                <Link to="/products" className="text-background/70 hover:text-primary transition-colors">E-commerce</Link>
               </li>
               <li>
-                <Link to="/about" className="text-background/70 hover:text-primary transition-colors">Marriage Biodata</Link>
+                <Link to="/products" className="text-background/70 hover:text-primary transition-colors">Marriage Biodata</Link>
               </li>
             </ul>
           </div>
+
 
           {/* Services */}
           <div>

@@ -268,8 +268,8 @@ const Contact = () => {
                     </div>
                     <div className="flex flex-col">
                       <h4 className="font-bold text-foreground mb-1 text-lg">Call Us</h4>
-                      <a href="tel:+919494022475" className="text-primary group-hover:text-emerald-500 transition-colors text-lg font-medium font-mono">
-                        +91 94940 22475
+                      <a href="tel:+917995526153" className="text-primary group-hover:text-emerald-500 transition-colors text-lg font-medium font-mono">
+                        +91 79955 26153
                       </a>
                       <p className="text-sm text-muted-foreground mt-1">Mon-Sat, 9am-6pm IST</p>
                     </div>
