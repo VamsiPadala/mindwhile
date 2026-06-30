@@ -70,7 +70,7 @@ export const ProcessSection = () => {
             />
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 relative z-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 relative z-10">
             {steps.map((step, i) => {
               const Icon = step.icon;
               return (
@@ -83,27 +83,27 @@ export const ProcessSection = () => {
                   className="relative group h-full"
                 >
                   {/* Card */}
-                  <div className={`h-full flex flex-col p-8 rounded-3xl bg-gradient-to-br ${step.gradient} text-white shadow-xl ${step.shadow} hover:-translate-y-3 hover:shadow-2xl transition-all duration-500 relative overflow-hidden`}>
+                  <div className={`h-full flex flex-col p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl bg-gradient-to-br ${step.gradient} text-white shadow-xl ${step.shadow} hover:-translate-y-3 hover:shadow-2xl transition-all duration-500 relative overflow-hidden`}>
                     
                     {/* Background number watermark */}
-                    <div className="absolute -top-6 -right-6 text-8xl font-black text-white/10 select-none group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500">
+                    <div className="absolute -top-4 -right-4 md:-top-6 md:-right-6 text-5xl md:text-8xl font-black text-white/10 select-none group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500">
                       {step.num}
                     </div>
 
                     {/* Icon container */}
-                    <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
-                      <Icon className="w-8 h-8 text-white drop-shadow-md" />
+                    <div className="w-10 h-10 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center mb-4 md:mb-8 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
+                      <Icon className="w-5 h-5 md:w-8 md:h-8 text-white drop-shadow-md" />
                     </div>
                     
-                    <h3 className="text-xl md:text-2xl font-bold mb-4 drop-shadow-sm">{step.title}</h3>
-                    <p className="text-white/80 text-sm leading-relaxed mb-6 flex-grow">
+                    <h3 className="text-sm sm:text-lg md:text-2xl font-bold mb-2 md:mb-4 drop-shadow-sm leading-tight">{step.title}</h3>
+                    <p className="text-white/80 text-[10px] sm:text-sm leading-snug md:leading-relaxed mb-4 md:mb-6 flex-grow">
                       {step.desc}
                     </p>
 
                     {/* Step indicator */}
-                    <div className="mt-auto pt-4 border-t border-white/20 flex items-center justify-between text-sm font-semibold tracking-wider uppercase">
+                    <div className="mt-auto pt-3 md:pt-4 border-t border-white/20 flex items-center justify-between text-[10px] md:text-sm font-semibold tracking-wider uppercase">
                       <span>Step {step.num}</span>
-                      <ArrowRight className="w-4 h-4 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                      <ArrowRight className="w-3 h-3 md:w-4 md:h-4 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                     </div>
                   </div>
                 </motion.div>

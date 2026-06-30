@@ -118,34 +118,67 @@ export const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Drawer */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass mt-2 mx-4 rounded-2xl overflow-hidden"
-          >
-            <nav className="flex flex-col p-4 gap-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="md:hidden fixed inset-0 z-[60] bg-black/20 backdrop-blur-sm"
+            />
+            {/* Drawer */}
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="md:hidden fixed top-0 right-0 z-[70] w-[80vw] max-w-sm bg-white dark:bg-slate-900 rounded-l-3xl rounded-bl-3xl shadow-2xl flex flex-col border-l border-b border-white/20 pb-2"
+            >
+              <div className="flex items-center justify-between p-4 mb-2">
+                <div className="bg-white/95 dark:bg-white p-1.5 rounded-xl shadow-sm border border-black/5">
+                  <img
+                    src="https://res.cloudinary.com/kits/image/upload/v1771698132/mindwhile_log_lb2qxs.png"
+                    alt="Logo"
+                    className="h-6 w-auto object-contain"
+                  />
+                </div>
+                <Button
+                  variant="ghost"
+                  size="icon"
                   onClick={() => setIsOpen(false)}
-                  className={`px-4 py-3 rounded-xl transition-colors ${location.pathname === link.path
-                    ? 'bg-primary/10 text-primary font-medium'
-                    : 'text-muted-foreground hover:bg-secondary'
-                    }`}
+                  className="rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200"
                 >
-                  {link.name}
-                </Link>
-              ))}
-              <Link to="/contact" onClick={() => setIsOpen(false)}>
-                <Button className="btn-primary w-full mt-2">Get Started</Button>
-              </Link>
-            </nav>
-          </motion.div>
+                  <X className="h-5 w-5" />
+                </Button>
+              </div>
+
+              <nav className="flex flex-col p-4 gap-2 pt-0">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`px-4 py-3.5 text-base rounded-2xl transition-colors ${location.pathname === link.path
+                      ? 'bg-primary/10 text-primary font-bold'
+                      : 'text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold'
+                      }`}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+                
+                <div className="mt-auto pt-6 pb-2">
+                  <Link to="/contact" onClick={() => setIsOpen(false)}>
+                    <Button className="btn-primary w-full shadow-lg h-14 text-base rounded-2xl">Contact Now</Button>
+                  </Link>
+                </div>
+              </nav>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </motion.header>

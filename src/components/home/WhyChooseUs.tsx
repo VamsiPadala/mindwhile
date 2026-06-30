@@ -110,7 +110,7 @@ export const WhyChooseUs = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 max-w-7xl mx-auto">
           {features.map((feature, i) => (
             <motion.div
               key={feature.title}
@@ -118,17 +118,17 @@ export const WhyChooseUs = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5, ease: "easeOut" }}
-              className={`group relative flex flex-col items-start text-left p-8 rounded-[2rem] border ${feature.border} ${feature.bg} shadow-sm hover:shadow-xl ${feature.hoverGlow} hover:-translate-y-2 transition-all duration-300 overflow-hidden cursor-default`}
+              className={`group relative flex flex-col items-start text-left p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-[2rem] border ${feature.border} ${feature.bg} shadow-sm hover:shadow-xl ${feature.hoverGlow} hover:-translate-y-2 transition-all duration-300 overflow-hidden cursor-default`}
             >
               {/* Top right watermark icon */}
-              <feature.icon className={`absolute -right-4 -top-4 w-32 h-32 opacity-[0.03] dark:opacity-[0.02] ${feature.textColor} pointer-events-none group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-500`} />
+              <feature.icon className={`absolute -right-2 -top-2 md:-right-4 md:-top-4 w-16 h-16 md:w-32 md:h-32 opacity-[0.03] dark:opacity-[0.02] ${feature.textColor} pointer-events-none group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-500`} />
               
-              <div className={`w-14 h-14 rounded-2xl ${feature.iconBg} flex items-center justify-center mb-6 shadow-md group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 relative z-10`}>
-                <feature.icon className="w-7 h-7 text-white" />
+              <div className={`w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl ${feature.iconBg} flex items-center justify-center mb-3 sm:mb-4 md:mb-6 shadow-md group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 relative z-10`}>
+                <feature.icon className="w-5 h-5 md:w-7 md:h-7 text-white" />
               </div>
               
-              <h3 className="text-xl font-bold mb-3 text-[#0A192F] dark:text-white relative z-10">{feature.title}</h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed relative z-10">{feature.desc}</p>
+              <h3 className="text-sm sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 md:mb-3 text-[#0A192F] dark:text-white relative z-10 leading-tight">{feature.title}</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-[10px] sm:text-xs md:text-sm leading-snug md:leading-relaxed relative z-10">{feature.desc}</p>
             </motion.div>
           ))}
         </div>

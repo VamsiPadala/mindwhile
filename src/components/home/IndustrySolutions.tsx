@@ -15,28 +15,28 @@ const industries = [
     title: 'Healthcare Solutions',
     description: 'HIPAA-compliant healthcare software. Next-generation EMR/EHR systems, telemedicine platforms, and smart patient management.',
     colorTheme: 'primary',
-    colSpan: 'md:col-span-2 lg:col-span-3 h-[320px] md:h-[360px]',
+    colSpan: 'col-span-1 md:col-span-2 lg:col-span-3 h-[240px] sm:h-[280px] md:h-[360px]',
   },
   {
     icon: GraduationCap,
     title: 'Education Solutions',
     description: 'Transforming EdTech. Immersive learning management systems, virtual classrooms, and interactive student engagement tools.',
     colorTheme: 'accent2',
-    colSpan: 'md:col-span-2 lg:col-span-3 h-[320px] md:h-[360px]',
+    colSpan: 'col-span-1 md:col-span-2 lg:col-span-3 h-[240px] sm:h-[280px] md:h-[360px]',
   },
   {
     icon: Factory,
     title: 'Manufacturing Solutions',
     description: 'Industry 4.0 innovations. Seamless IoT integration, automated supply chains, and predictive maintenance.',
     colorTheme: 'accent1',
-    colSpan: 'md:col-span-2 lg:col-span-3 h-[320px] md:h-[360px]',
+    colSpan: 'col-span-1 md:col-span-2 lg:col-span-3 h-[240px] sm:h-[280px] md:h-[360px]',
   },
   {
     icon: Megaphone,
     title: 'Marketing & Networking',
     description: 'Data-driven growth. Marketing automation, intelligent CRM systems, and real-time social analytics platforms.',
     colorTheme: 'primary',
-    colSpan: 'md:col-span-2 lg:col-span-3 h-[320px] md:h-[360px]',
+    colSpan: 'col-span-1 md:col-span-2 lg:col-span-3 h-[240px] sm:h-[280px] md:h-[360px]',
   },
 ];
 
@@ -72,7 +72,7 @@ export const IndustrySolutions = () => {
 
         <div
           ref={ref}
-          className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-6 xl:gap-8 cursor-pointer"
+          className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-6 xl:gap-8 cursor-pointer"
         >
           {industries.map((industry, index) => (
             <motion.div
@@ -93,18 +93,18 @@ export const IndustrySolutions = () => {
                   FRONT FACE
                   =================
                 */}
-                <div className="absolute inset-0 card-base !p-6 md:!p-10 flex flex-col items-center justify-center overflow-hidden border border-border/40 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] z-20 text-center bg-white dark:bg-card">
+                <div className="absolute inset-0 card-base !p-4 sm:!p-6 md:!p-10 flex flex-col items-center justify-center overflow-hidden border border-border/40 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] z-20 text-center bg-white dark:bg-card">
                   <div className={`absolute inset-0 bg-gradient-${industry.colorTheme} opacity-[0.03] group-hover:opacity-0 transition-opacity duration-500`} />
 
                   {/* Deep watermark background */}
-                  <industry.icon className="absolute -bottom-6 -left-6 md:-bottom-10 md:-left-10 w-40 h-40 md:w-64 md:h-64 opacity-[0.03] text-foreground pointer-events-none group-hover:scale-110 transition-transform duration-700" />
+                  <industry.icon className="absolute -bottom-6 -left-6 md:-bottom-10 md:-left-10 w-32 h-32 md:w-64 md:h-64 opacity-[0.03] text-foreground pointer-events-none group-hover:scale-110 transition-transform duration-700" />
 
-                  <div className={`icon-tile icon-tile-lg bg-gradient-${industry.colorTheme} shadow-lg mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-500`}>
-                    <industry.icon className="w-8 h-8 md:w-10 md:h-10 text-white relative z-10" />
+                  <div className={`icon-tile bg-gradient-${industry.colorTheme} shadow-lg mb-3 sm:mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-500`}>
+                    <industry.icon className="w-6 h-6 md:w-10 md:h-10 text-white relative z-10" />
                     <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent" />
                   </div>
 
-                  <h3 className="heading-3 transition-transform duration-500">
+                  <h3 className="text-sm sm:text-lg md:text-2xl font-bold transition-transform duration-500 leading-tight">
                     {industry.title}
                   </h3>
                 </div>
@@ -114,26 +114,26 @@ export const IndustrySolutions = () => {
                   BACK FACE
                   =================
                 */}
-                <div className="absolute inset-0 card-base !p-6 md:!p-10 flex flex-col justify-center overflow-hidden border border-border/40 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] [transform:rotateY(180deg)] z-10 bg-white dark:bg-card">
+                <div className="absolute inset-0 card-base !p-4 sm:!p-6 md:!p-10 flex flex-col justify-center overflow-hidden border border-border/40 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] [transform:rotateY(180deg)] z-10 bg-white dark:bg-card">
                   {/* Rich back face gradients */}
                   <div className={`absolute inset-0 bg-gradient-${industry.colorTheme} opacity-[0.08]`} />
-                  <div className={`absolute -right-10 -top-10 md:-right-20 md:-top-20 w-40 h-40 md:w-64 md:h-64 bg-gradient-${industry.colorTheme} opacity-20 blur-[80px] rounded-full`} />
+                  <div className={`absolute -right-10 -top-10 md:-right-20 md:-top-20 w-32 h-32 md:w-64 md:h-64 bg-gradient-${industry.colorTheme} opacity-20 blur-[80px] rounded-full`} />
 
-                  <div className="relative z-10 flex justify-between items-start mb-4 md:mb-6">
-                    <div className={`icon-tile icon-tile-md bg-gradient-${industry.colorTheme} shadow-lg`}>
-                      <industry.icon className="w-6 h-6 md:w-8 md:h-8 text-white relative z-10" />
+                  <div className="relative z-10 flex justify-between items-start mb-3 sm:mb-4 md:mb-6">
+                    <div className={`icon-tile bg-gradient-${industry.colorTheme} shadow-lg rounded-xl md:rounded-2xl w-8 h-8 md:w-16 md:h-16 flex items-center justify-center`}>
+                      <industry.icon className="w-4 h-4 md:w-8 md:h-8 text-white relative z-10" />
                       <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent" />
                     </div>
-                    <div className={`w-8 h-8 md:w-12 md:h-12 rounded-full flex items-center justify-center bg-${industry.colorTheme === 'primary' ? 'primary' : industry.colorTheme === 'accent1' ? 'emerald-500' : 'purple-500'}/10`}>
+                    <div className={`w-6 h-6 md:w-12 md:h-12 rounded-full flex items-center justify-center bg-${industry.colorTheme === 'primary' ? 'primary' : industry.colorTheme === 'accent1' ? 'emerald-500' : 'purple-500'}/10`}>
                       <ArrowUpRight className={`w-3 h-3 md:w-5 md:h-5 text-${industry.colorTheme === 'primary' ? 'primary' : industry.colorTheme === 'accent1' ? 'emerald-500' : 'purple-500'}`} />
                     </div>
                   </div>
 
                   <div className="relative z-10 flex-1 flex flex-col justify-end pb-1 md:pb-2">
-                    <h3 className="heading-3 mb-2 md:mb-3">
+                    <h3 className="text-sm sm:text-lg md:text-2xl font-bold mb-1 sm:mb-2 md:mb-3 leading-tight">
                       {industry.title}
                     </h3>
-                    <p className="text-body text-xs md:text-base font-medium">
+                    <p className="text-body text-[10px] sm:text-xs md:text-base font-medium leading-snug">
                       {industry.description}
                     </p>
                   </div>

@@ -110,24 +110,24 @@ const About = () => {
                 Product Innovators
               </motion.span>
 
-              <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="heading-1 mb-6">
+              <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 lg:mb-6 leading-tight tracking-tight text-foreground">
                 We Build Products That
-                <span className="gradient-text block mt-2">Change the World</span>
+                <span className="gradient-text block mt-1">Change the World</span>
               </motion.h1>
 
-              <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} className="text-body max-w-3xl mx-auto">
+              <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} className="text-body text-sm md:text-base max-w-3xl mx-auto">
                 At Mindwhile IT Solutions Pvt Ltd, we don't just write code — we incubate, build, and scale revolutionary SaaS platforms like School ERP, Jago, and NeuroTalk.
               </motion.p>
 
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }} className="flex flex-wrap justify-center gap-4 mt-10">
                 <Link to="/products">
-                  <Button className="btn-primary group px-8 py-5 h-auto text-base rounded-2xl">
+                  <Button className="btn-primary group px-6 py-4 lg:px-8 lg:py-5 h-auto text-sm lg:text-base rounded-2xl">
                     Explore Our Products
-                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="ml-2 w-4 h-4 lg:w-5 lg:h-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
                 <Link to="/contact">
-                  <Button variant="outline" className="px-8 py-5 h-auto text-base rounded-2xl border-2">
+                  <Button variant="outline" className="px-6 py-4 lg:px-8 lg:py-5 h-auto text-sm lg:text-base rounded-2xl border-2">
                     Partner With Us
                   </Button>
                 </Link>
@@ -161,7 +161,7 @@ const About = () => {
                   Today, our entire team is dedicated to innovating and scaling three major platforms: our flagship School ERP system, the Jago ride-hailing network, and our upcoming AI healthcare platform, NeuroTalk. 
                 </p>
 
-                <div className="grid sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-3 lg:gap-4 mt-6">
                   {[
                     'Product-Led Growth',
                     'Continuous Innovation',
@@ -181,7 +181,7 @@ const About = () => {
                       <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                         <CheckCircle className="w-4 h-4 text-primary" />
                       </div>
-                      <span className="font-medium text-foreground text-sm">{item}</span>
+                      <span className="font-medium text-foreground text-xs lg:text-sm">{item}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -247,7 +247,7 @@ const About = () => {
               <p className="text-body">Our entire organization is uniquely structured around building, scaling, and perfecting these three flagship platforms.</p>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-4 lg:gap-8">
               {products.map((p, index) => (
                 <motion.div
                   key={p.title}
@@ -255,15 +255,15 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.6 }}
-                  className="card-base text-left group flex flex-col h-full"
+                  className="card-base !p-5 md:!p-8 text-left group flex flex-col h-full"
                 >
                   <div className={`absolute inset-0 bg-gradient-${p.colorTheme} opacity-[0.03] group-hover:opacity-10 transition-opacity duration-500`} />
-                  <div className={`icon-tile icon-tile-md bg-gradient-${p.colorTheme} mb-6 group-hover:scale-110 transition-transform duration-500`}>
-                    <p.icon className="w-8 h-8 text-white relative z-10" />
+                  <div className={`icon-tile icon-tile-sm md:icon-tile-md bg-gradient-${p.colorTheme} mb-4 lg:mb-6 group-hover:scale-110 transition-transform duration-500`}>
+                    <p.icon className="w-5 h-5 md:w-8 md:h-8 text-white relative z-10" />
                     <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent" />
                   </div>
-                  <h3 className="heading-3 mb-3">{p.title}</h3>
-                  <p className="text-body text-sm md:text-base mb-6 flex-grow">{p.description}</p>
+                  <h3 className="heading-3 text-base md:text-xl mb-2 lg:mb-3">{p.title}</h3>
+                  <p className="text-body text-xs md:text-base mb-4 lg:mb-6 flex-grow">{p.description}</p>
                   
                   <Link to={p.link} className={`inline-flex items-center text-sm font-bold text-${p.colorTheme === 'primary' ? 'primary' : p.colorTheme === 'accent1' ? 'emerald-500' : 'purple-500'} group-hover:translate-x-2 transition-transform`}>
                     Learn more <ArrowRight className="ml-1 w-4 h-4" />
@@ -308,13 +308,9 @@ const About = () => {
                   >
                     {/* Content card */}
                     <div className="w-full md:w-5/12">
-                      <div className="card-base !p-6 hover:-translate-y-1 transition-transform duration-300">
-                        <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-white text-xs font-bold uppercase tracking-wider mb-4 bg-gradient-${m.colorTheme} shadow-lg`}>
-                          <m.icon className="w-3.5 h-3.5" />
-                          {m.year}
-                        </div>
-                        <h3 className="heading-3 mb-2 text-lg">{m.title}</h3>
-                        <p className="text-body text-sm leading-relaxed">{m.description}</p>
+                      <div className="card-base !p-4 lg:!p-6 hover:-translate-y-1 transition-transform duration-300">
+                        <h3 className="heading-3 mb-2 text-base lg:text-lg">{m.title}</h3>
+                        <p className="text-body text-xs lg:text-sm leading-relaxed">{m.description}</p>
                       </div>
                     </div>
 
@@ -362,13 +358,13 @@ const About = () => {
               </p>
               <div className="flex flex-wrap justify-center gap-4 relative z-10">
                 <Link to="/products">
-                  <Button className="btn-primary group text-base px-8 py-5 h-auto rounded-2xl shadow-xl shadow-primary/20">
+                  <Button className="btn-primary group text-sm lg:text-base px-6 py-4 lg:px-8 lg:py-5 h-auto rounded-2xl shadow-xl shadow-primary/20">
                     Explore Ecosystem
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
                 <Link to="/contact">
-                  <Button variant="outline" className="text-base px-8 py-5 h-auto rounded-2xl border-2 hover:bg-secondary/50">
+                  <Button variant="outline" className="text-sm lg:text-base px-6 py-4 lg:px-8 lg:py-5 h-auto rounded-2xl border-2 hover:bg-secondary/50">
                     Contact Sales
                   </Button>
                 </Link>

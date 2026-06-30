@@ -196,11 +196,11 @@ const Services = () => {
               <span className="text-caption bg-primary/10 text-primary px-4 py-2 rounded-full mb-6 inline-block">
                 Our Services
               </span>
-              <h1 className="heading-1 mb-6">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 lg:mb-6 leading-tight tracking-tight text-foreground">
                 Comprehensive IT
-                <span className="gradient-text block">Solutions & Services</span>
+                <span className="gradient-text block mt-1">Solutions & Services</span>
               </h1>
-              <p className="text-body max-w-3xl mx-auto">
+              <p className="text-body text-sm md:text-base max-w-3xl mx-auto">
                 From web development to digital marketing, we provide end-to-end technology
                 solutions to help your business thrive in the digital age.
               </p>
@@ -211,7 +211,7 @@ const Services = () => {
         
         {/* Services List */}
         <section className="section-padding">
-          <div className="container mx-auto px-4 space-y-16 lg:space-y-24">
+          <div className="container mx-auto px-4 space-y-8 lg:space-y-24">
             {services.map((service, index) => {
               return (
                 <motion.div
@@ -220,18 +220,18 @@ const Services = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-100px' }}
                   transition={{ duration: 0.8 }}
-                  className="card-base"
+                  className="card-base !p-4 lg:!p-8"
                 >
-                  <div className="flex flex-col lg:flex-row grid-gap">
+                  <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
                     {/* Header Side */}
                     <div className="w-full lg:w-1/3">
-                      <div className="flex items-start gap-5 mb-6">
-                        <div className={`icon-tile icon-tile-md bg-gradient-${service.colorTheme}`}>
-                          <service.icon className="w-8 h-8 text-white relative z-10" />
+                      <div className="flex items-center lg:items-start gap-3 lg:gap-5 mb-4 lg:mb-6">
+                        <div className={`icon-tile icon-tile-sm lg:icon-tile-md bg-gradient-${service.colorTheme}`}>
+                          <service.icon className="w-6 h-6 lg:w-8 lg:h-8 text-white relative z-10" />
                           <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent" />
                         </div>
                         <div>
-                          <h3 className="heading-3 mb-2">{service.title}</h3>
+                          <h3 className="heading-3 text-lg lg:text-2xl mb-1 lg:mb-2">{service.title}</h3>
                           {service.isPremium && (
                             <span className="text-caption bg-gradient-accent1 text-white px-3 py-1 rounded-full shadow-sm">
                               Premium
@@ -239,12 +239,12 @@ const Services = () => {
                           )}
                         </div>
                       </div>
-                      <p className="text-body mb-6">
+                      <p className="text-body text-sm lg:text-base mb-4 lg:mb-6">
                         {service.description}
                       </p>
                       
-                      <div className="mb-6">
-                        <h4 className="text-sm font-bold uppercase tracking-widest text-foreground/80 mb-3 flex items-center gap-2">
+                      <div className="mb-4 lg:mb-6">
+                        <h4 className="text-xs lg:text-sm font-bold uppercase tracking-widest text-foreground/80 mb-2 lg:mb-3 flex items-center gap-2">
                            Built With
                         </h4>
                         <div className="flex flex-wrap gap-2">
@@ -265,13 +265,13 @@ const Services = () => {
                     </div>
 
                     {/* Content Side */}
-                    <div className="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mt-2 lg:mt-0">
                       {/* Features */}
                       <div>
-                        <h4 className="text-caption mb-4 flex items-center gap-2">
+                        <h4 className="text-xs lg:text-sm mb-3 lg:mb-4 font-bold uppercase tracking-widest flex items-center gap-2 text-foreground/80">
                           <CheckCircle className="w-4 h-4 text-primary" /> Key Capabilities
                         </h4>
-                        <ul className="space-y-3">
+                        <ul className="grid grid-cols-2 md:grid-cols-1 gap-2 lg:gap-0 lg:space-y-3">
                           {service.features.map((feature) => (
                             <li key={feature} className="flex items-start gap-3">
                               {feature.includes('Bulk') ? (
@@ -279,23 +279,23 @@ const Services = () => {
                               ) : (
                                 <div className={`w-2 h-2 rounded-full bg-gradient-${service.colorTheme} shrink-0 mt-1.5`} />
                               )}
-                              <span className="text-foreground text-sm font-medium">{feature}</span>
+                              <span className="text-foreground text-xs lg:text-sm font-medium">{feature}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
 
-                      <div className="space-y-8">
+                      <div className="space-y-6 lg:space-y-8">
                          {/* Deliverables */}
                         <div>
-                          <h4 className="text-sm font-bold uppercase tracking-widest text-foreground/80 mb-4 flex items-center gap-2">
+                          <h4 className="text-xs lg:text-sm font-bold uppercase tracking-widest text-foreground/80 mb-3 lg:mb-4 flex items-center gap-2">
                             <Layers className="w-4 h-4 text-primary" /> Deliverables
                           </h4>
-                          <ul className="space-y-3">
+                          <ul className="grid grid-cols-2 md:grid-cols-1 gap-2 lg:gap-0 lg:space-y-3">
                             {service.deliverables.map((deliverable) => (
                               <li key={deliverable} className="flex items-start gap-3">
                                 <CheckCircle className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
-                                <span className="text-muted-foreground text-sm font-medium">{deliverable}</span>
+                                <span className="text-muted-foreground text-xs lg:text-sm font-medium">{deliverable}</span>
                               </li>
                             ))}
                           </ul>
@@ -303,10 +303,10 @@ const Services = () => {
                         
                         {/* Business Value */}
                         <div>
-                          <h4 className="text-sm font-bold uppercase tracking-widest text-foreground/80 mb-3 flex items-center gap-2">
+                          <h4 className="text-xs lg:text-sm font-bold uppercase tracking-widest text-foreground/80 mb-2 lg:mb-3 flex items-center gap-2">
                             <Zap className="w-4 h-4 text-primary" /> Business Value
                           </h4>
-                          <p className="text-foreground text-sm leading-relaxed p-4 rounded-xl bg-secondary/50 border border-border/50">
+                          <p className="text-foreground text-xs lg:text-sm leading-relaxed p-3 lg:p-4 rounded-xl bg-secondary/50 border border-border/50">
                             {service.businessValue}
                           </p>
                         </div>
@@ -339,7 +339,7 @@ const Services = () => {
             </motion.div>
 
             <div className="relative w-full max-w-7xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 lg:gap-8">
                 {processSteps.map((step, index) => (
                   <motion.div
                     key={step.title}
@@ -347,27 +347,27 @@ const Services = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className={`card-base group overflow-hidden flex flex-col justify-between h-full`}
+                    className={`card-base !p-4 lg:!p-8 group overflow-hidden flex flex-col justify-between h-full`}
                   >
                     {/* Background Big Number */}
-                    <div className="absolute -bottom-6 -right-6 text-[120px] font-black text-foreground/[0.03] dark:text-foreground/[0.02] pointer-events-none select-none z-0 group-hover:text-foreground/[0.05] transition-colors duration-500 leading-none">
+                    <div className="absolute -bottom-4 -right-4 lg:-bottom-6 lg:-right-6 text-[80px] lg:text-[120px] font-black text-foreground/[0.03] dark:text-foreground/[0.02] pointer-events-none select-none z-0 group-hover:text-foreground/[0.05] transition-colors duration-500 leading-none">
                       0{index + 1}
                     </div>
 
                     <div className="relative z-10 flex flex-col h-full">
-                      <div className="flex items-center justify-between mb-8">
-                        <div className={`icon-tile icon-tile-md bg-gradient-${step.colorTheme} shadow-xl shadow-${step.colorTheme}/20`}>
-                          <step.icon className="w-7 h-7 text-white" />
+                      <div className="flex items-center justify-between mb-4 lg:mb-8">
+                        <div className={`icon-tile icon-tile-sm lg:icon-tile-md bg-gradient-${step.colorTheme} shadow-xl shadow-${step.colorTheme}/20`}>
+                          <step.icon className="w-4 h-4 lg:w-7 lg:h-7 text-white" />
                           <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent" />
                         </div>
-                        <span className={`text-sm font-bold bg-clip-text text-transparent bg-gradient-${step.colorTheme}`}>
+                        <span className={`text-[10px] lg:text-sm font-bold bg-clip-text text-transparent bg-gradient-${step.colorTheme}`}>
                           STEP 0{index + 1}
                         </span>
                       </div>
                       
                       <div className="mt-auto">
-                        <h3 className="heading-3 mb-3 group-hover:-translate-y-1 transition-transform duration-300">{step.title}</h3>
-                        <p className="text-muted-foreground leading-relaxed">{step.description}</p>
+                        <h3 className="text-sm md:text-base lg:text-xl font-bold mb-1.5 lg:mb-3 group-hover:-translate-y-1 transition-transform duration-300">{step.title}</h3>
+                        <p className="text-[11px] lg:text-sm text-muted-foreground leading-snug lg:leading-relaxed">{step.description}</p>
                       </div>
                     </div>
                   </motion.div>

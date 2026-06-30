@@ -35,6 +35,8 @@ import {
     Clock,
     HeartPulse,
     TrendingUp,
+    MessageCircle,
+    MessageSquare,
 } from 'lucide-react';
 
 /* ───────────────────── Product Data ───────────────────── */
@@ -43,7 +45,7 @@ const products = [
     {
         id: 'school-management',
         icon: GraduationCap,
-        title: 'School Management',
+        title: 'OURSCHOOL ERP',
         tagline: 'Complete Digital Campus Solution',
         badge: 'explore',   // "explore" | "inprogress"
         badgeLabel: 'Explore',
@@ -64,7 +66,7 @@ const products = [
             { label: 'Schools', value: '50+' },
             { label: 'Uptime', value: '99.9%' },
         ],
-        exploreLink: 'https://ourschoolerp.com/',
+        exploreLink: 'https://staging.ourschoolerp.com/signin/index',
         brief: 'Our School Management System is a full-featured platform built to digitize every operation of a modern educational institution. It handles everything from student enrollment and attendance automation to exam management, fee collection, and real-time parent-teacher communication — all under one unified dashboard.',
     },
     {
@@ -72,8 +74,8 @@ const products = [
         icon: Car,
         title: 'Jago',
         tagline: 'Smart Bike & Cab Ride Platform',
-        badge: 'inprogress',
-        badgeLabel: 'In Progress',
+        badge: 'explore',
+        badgeLabel: 'Explore',
         description:
             'A next-generation ride-hailing platform for bikes and cabs — designed to make daily commute fast, affordable, and reliable. Jago connects riders with nearby drivers in seconds, offering real-time GPS tracking, flexible fare options, and a seamless booking experience like Rapido and Ola.',
         features: [
@@ -91,43 +93,70 @@ const products = [
             { label: 'Drivers', value: '200+' },
             { label: 'Cities', value: '5+' },
         ],
-        exploreLink: null,
-        brief: null,
+        exploreLink: 'https://jagopro.org',
+        brief: 'Jago is a revolutionary ride-hailing platform designed for speed and reliability. It seamlessly connects riders with bike and cab drivers, offering real-time tracking, transparent fare calculations, and a secure in-app payment system for effortless daily commutes.',
     },
     {
-        id: 'raksha-assist',
-        icon: HeartPulse,
-        title: 'Raksha Assist',
-        tagline: 'Comprehensive Health Insurance Platform',
-        badge: 'inprogress',
-        badgeLabel: 'In Progress',
+        id: 'bulk-whatsapp',
+        icon: MessageCircle,
+        title: 'Bulk WhatsApp',
+        tagline: 'Automated WhatsApp Marketing',
+        badge: 'explore',
+        badgeLabel: 'Explore',
         description:
-            'A cutting-edge health insurance platform that streamlines policy management, claims processing, and customer assistance — making healthcare coverage transparent, accessible, and seamless for every user.',
+            'Reach your audience instantly with our powerful Bulk WhatsApp marketing platform. Send personalized messages, automated replies, and multimedia content to thousands of customers securely and efficiently.',
         features: [
-            'Policy Management',
-            'Claims Processing',
-            'Customer Portal',
-            'Healthcare Network',
-            'Secure Data Vault',
-            'Real-time Assistance',
+            'Automated Messaging',
+            'Contact Management',
+            'Media Attachments',
+            'Analytics Dashboard',
+            'API Integration',
+            'Smart Chatbots',
         ],
-        gradient: 'from-rose-500 to-pink-500',
-        colorTheme: 'rose-500',
+        gradient: 'from-green-500 to-emerald-500',
+        colorTheme: 'green-500',
         stats: [
-            { label: 'Policy Types', value: '20+' },
-            { label: 'Partners', value: '15+' },
-            { label: 'Processing', value: '24/7' },
+            { label: 'Messages/Sec', value: '1K+' },
+            { label: 'Delivery', value: '99%' },
+            { label: 'Clients', value: '500+' },
         ],
-        exploreLink: null,
-        brief: null,
+        exploreLink: 'http://bwa.mindwhile.com/login.php',
+        brief: 'Our Bulk WhatsApp platform empowers businesses to connect with their audience at scale. With features like personalized messaging, multimedia support, and advanced analytics, it is the perfect tool for running highly engaging marketing campaigns and providing instant customer support.',
+    },
+    {
+        id: 'bulk-sms',
+        icon: MessageSquare,
+        title: 'Bulk SMS',
+        tagline: 'Reliable SMS Gateway',
+        badge: 'explore',
+        badgeLabel: 'Explore',
+        description:
+            'Ensure high deliverability for your transactional and promotional messages with our robust Bulk SMS gateway. Designed for scale, speed, and real-time tracking across global networks.',
+        features: [
+            'High Delivery Rate',
+            'Promotional & OTP',
+            'Real-time Reports',
+            'Custom Sender ID',
+            'API & Webhooks',
+            'Contact Grouping',
+        ],
+        gradient: 'from-blue-500 to-indigo-500',
+        colorTheme: 'blue-500',
+        stats: [
+            { label: 'Delivery Rate', value: '99.9%' },
+            { label: 'Latency', value: '<2s' },
+            { label: 'Countries', value: '190+' },
+        ],
+        exploreLink: 'https://smslogin.co/v3/',
+        brief: 'Our Bulk SMS gateway is built for enterprises that demand high-speed and reliable message delivery. Whether you are sending critical OTPs, transactional alerts, or large-scale promotional campaigns, our robust API and tracking tools ensure your messages reach their destination instantly.',
     },
     {
         id: 'neurotalk',
         icon: Brain,
         title: 'NeuroTalk',
         tagline: 'AI-Powered Real-Time Call Translation',
-        badge: 'inprogress',
-        badgeLabel: 'In Progress',
+        badge: 'explore',
+        badgeLabel: 'Explore',
         description:
             'Advanced AI communication tool that enables real-time call translation across 22 languages — with voice cloning technology that translates using your own voice, making global conversations feel completely natural.',
         features: [
@@ -145,8 +174,35 @@ const products = [
             { label: 'Accuracy', value: '98%' },
             { label: 'Latency', value: '<1s' },
         ],
-        exploreLink: null,
-        brief: null,
+        exploreLink: 'https://neuratalk.in',
+        brief: 'NeuroTalk breaks down global language barriers with advanced AI real-time translation. Featuring revolutionary voice cloning technology, it translates your speech while retaining your natural tone across 22 languages, ensuring privacy and seamless connectivity for international calls.',
+    },
+    {
+        id: 'raksha-assist',
+        icon: HeartPulse,
+        title: 'Raksha Assist',
+        tagline: 'Comprehensive Health Insurance Platform',
+        badge: 'explore',
+        badgeLabel: 'Explore',
+        description:
+            'A cutting-edge health insurance platform that streamlines policy management, claims processing, and customer assistance — making healthcare coverage transparent, accessible, and seamless for every user.',
+        features: [
+            'Policy Management',
+            'Claims Processing',
+            'Customer Portal',
+            'Healthcare Network',
+            'Secure Data Vault',
+            'Real-time Assistance',
+        ],
+        gradient: 'from-rose-500 to-pink-500',
+        colorTheme: 'rose-500',
+        stats: [
+            { label: 'Policy Types', value: '20+' },
+            { label: 'Partners', value: '15+' },
+            { label: 'Processing', value: '24/7' },
+        ],
+        exploreLink: 'https://rakshaasaiat.com',
+        brief: 'Raksha Assist transforms health insurance management by providing a centralized, user-friendly portal. Users can easily manage policies, submit and track claims in real-time, and access a comprehensive healthcare network with 24/7 assistance and transparent data security.',
     },
 ];
 
@@ -342,8 +398,43 @@ const ProductCard = ({
                 initial={{ opacity: 0, y: 70 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 70 }}
                 transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className={`relative flex flex-col ${isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-8 lg:gap-12`}
+                className={`relative flex flex-col ${isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-6 lg:gap-12`}
             >
+                {/* Mobile Title Block */}
+                <div className="w-full lg:hidden flex flex-col space-y-3 mb-2">
+                    <motion.div
+                        initial={{ opacity: 0, x: isReversed ? 20 : -20 }}
+                        animate={isInView ? { opacity: 1, x: 0 } : {}}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="inline-flex items-center gap-3"
+                    >
+                        <span className={`text-sm font-bold tracking-widest uppercase bg-clip-text text-transparent bg-gradient-to-r ${product.gradient}`}>
+                            0{index + 1} // Product
+                        </span>
+                    </motion.div>
+
+                    <motion.h3
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.7, delay: 0.3 }}
+                        className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight"
+                    >
+                        {product.title}
+                    </motion.h3>
+
+                    <motion.div
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={isInView ? { opacity: 1, x: 0 } : {}}
+                        transition={{ duration: 0.5, delay: 0.35 }}
+                        className="flex items-center gap-3"
+                    >
+                        <div className={`w-8 md:w-12 h-[3px] rounded-full bg-gradient-to-r ${product.gradient}`} />
+                        <p className={`text-sm md:text-lg font-medium text-${product.colorTheme}`}>
+                            {product.tagline}
+                        </p>
+                    </motion.div>
+                </div>
+
                 {/* Visual Side */}
                 <div className="w-full lg:w-5/12 relative group shrink-0">
                     <div className={`absolute -inset-1 bg-gradient-to-r ${product.gradient} opacity-0 group-hover:opacity-20 transition-all duration-700 rounded-[2rem] blur-2xl`} />
@@ -351,7 +442,7 @@ const ProductCard = ({
                     <div className={`card-base !p-0 shadow-[0_15px_40px_-15px_rgba(0,0,0,0.3)] hover:shadow-[0_30px_80px_rgba(0,0,0,0.18)]`}>
                         <div className={`h-1.5 w-full bg-gradient-to-r ${product.gradient}`} />
 
-                        <div className="p-8 md:p-10 relative">
+                        <div className="p-5 sm:p-8 md:p-10 relative">
                             <div className={`absolute inset-0 bg-gradient-to-br ${product.gradient} opacity-[0.03] group-hover:opacity-[0.07] transition-opacity duration-700`} />
                             
                             <div className="absolute top-6 right-6 z-20">
@@ -363,10 +454,10 @@ const ProductCard = ({
                             <motion.div
                                 animate={{ y: [-5, 5, -5], rotate: [0, 2, -2, 0] }}
                                 transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-                                className="relative z-10 mb-8 flex justify-center pt-8"
+                                className="relative z-10 mb-6 md:mb-8 flex justify-center pt-8 md:pt-8"
                             >
-                                <div className={`icon-tile icon-tile-lg bg-gradient-to-br ${product.gradient} shadow-2xl`}>
-                                    <product.icon className="w-12 h-12 text-white drop-shadow-lg relative z-10" />
+                                <div className={`icon-tile w-12 h-12 md:w-20 md:h-20 rounded-xl md:rounded-2xl flex items-center justify-center bg-gradient-to-br ${product.gradient} shadow-2xl`}>
+                                    <product.icon className="w-6 h-6 md:w-12 md:h-12 text-white drop-shadow-lg relative z-10" />
                                     <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent" />
                                 </div>
                             </motion.div>
@@ -395,46 +486,49 @@ const ProductCard = ({
                 </div>
 
                 {/* Content Side */}
-                <div className="w-full lg:w-7/12 flex flex-col space-y-6">
-                    <motion.div
-                        initial={{ opacity: 0, x: isReversed ? 20 : -20 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="inline-flex items-center gap-3"
-                    >
-                        <span className={`text-sm font-bold tracking-widest uppercase bg-clip-text text-transparent bg-gradient-to-r ${product.gradient}`}>
-                            0{index + 1} // Product
-                        </span>
-                    </motion.div>
+                <div className="w-full lg:w-7/12 flex flex-col space-y-4 lg:space-y-6">
+                    {/* Desktop Title Block */}
+                    <div className="hidden lg:flex flex-col space-y-6">
+                        <motion.div
+                            initial={{ opacity: 0, x: isReversed ? 20 : -20 }}
+                            animate={isInView ? { opacity: 1, x: 0 } : {}}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="inline-flex items-center gap-3"
+                        >
+                            <span className={`text-sm font-bold tracking-widest uppercase bg-clip-text text-transparent bg-gradient-to-r ${product.gradient}`}>
+                                0{index + 1} // Product
+                            </span>
+                        </motion.div>
 
-                    <motion.h3
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.7, delay: 0.3 }}
-                        className="text-4xl md:text-5xl font-black tracking-tight"
-                    >
-                        {product.title}
-                    </motion.h3>
+                        <motion.h3
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={isInView ? { opacity: 1, y: 0 } : {}}
+                            transition={{ duration: 0.7, delay: 0.3 }}
+                            className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight"
+                        >
+                            {product.title}
+                        </motion.h3>
 
-                    <motion.div
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ duration: 0.5, delay: 0.35 }}
-                        className="flex items-center gap-3"
-                    >
-                        <div className={`w-12 h-[3px] rounded-full bg-gradient-to-r ${product.gradient}`} />
-                        <p className={`text-lg font-medium text-${product.colorTheme}`}>
-                            {product.tagline}
-                        </p>
-                    </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={isInView ? { opacity: 1, x: 0 } : {}}
+                            transition={{ duration: 0.5, delay: 0.35 }}
+                            className="flex items-center gap-3"
+                        >
+                            <div className={`w-8 md:w-12 h-[3px] rounded-full bg-gradient-to-r ${product.gradient}`} />
+                            <p className={`text-sm md:text-lg font-medium text-${product.colorTheme}`}>
+                                {product.tagline}
+                            </p>
+                        </motion.div>
+                    </div>
 
-                    <AnimatedDesc text={product.description} className="text-lg text-muted-foreground leading-relaxed py-2" />
+                    <AnimatedDesc text={product.description} className="text-sm md:text-lg text-muted-foreground leading-relaxed py-1 md:py-2" />
 
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.6, delay: 0.5 }}
-                        className="grid sm:grid-cols-2 gap-4 pt-4"
+                        className="grid grid-cols-2 sm:grid-cols-2 gap-2 sm:gap-4 pt-2 sm:pt-4"
                     >
                         {product.features.map((feature, i) => (
                             <motion.div
@@ -442,10 +536,10 @@ const ProductCard = ({
                                 initial={{ opacity: 0, x: -12 }}
                                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                                 transition={{ duration: 0.4, delay: 0.5 + i * 0.07 }}
-                                className={`flex items-center gap-3 p-4 rounded-xl bg-${product.colorTheme}/5 border border-${product.colorTheme}/10 hover:bg-${product.colorTheme}/10 transition-colors`}
+                                className={`flex items-center gap-3 p-3 sm:p-4 rounded-xl bg-${product.colorTheme}/5 border border-${product.colorTheme}/10 hover:bg-${product.colorTheme}/10 transition-colors`}
                             >
-                                <CheckCircle className={`w-5 h-5 shrink-0 text-${product.colorTheme}`} />
-                                <span className="text-sm font-semibold text-foreground">{feature}</span>
+                                <CheckCircle className={`w-4 h-4 sm:w-5 sm:h-5 shrink-0 text-${product.colorTheme}`} />
+                                <span className="text-xs sm:text-sm font-semibold text-foreground">{feature}</span>
                             </motion.div>
                         ))}
                     </motion.div>
@@ -460,22 +554,22 @@ const ProductCard = ({
                             <>
                                 <Link to={`/products/${product.id}`}>
                                     <button
-                                        className={`inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r ${product.gradient} text-white font-bold text-base shadow-xl hover:opacity-90 hover:-translate-y-1 transition-all duration-300 group`}
+                                        className={`inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl bg-gradient-to-r ${product.gradient} text-white font-bold text-sm sm:text-base shadow-xl hover:opacity-90 hover:-translate-y-1 transition-all duration-300 group`}
                                     >
                                         Explore Platform
-                                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                                     </button>
                                 </Link>
                                 <a href={product.exploreLink!} target="_blank" rel="noopener noreferrer">
-                                    <Button variant="outline" className={`rounded-2xl px-8 py-4 h-auto font-bold border-2 transition-all group`}>
+                                    <Button variant="outline" className={`rounded-2xl px-6 sm:px-8 py-3 sm:py-4 h-auto font-bold text-sm sm:text-base border-2 transition-all group`}>
                                         <ExternalLink className={`mr-2 w-4 h-4 text-${product.colorTheme}`} />
                                         Visit Website
                                     </Button>
                                 </a>
                             </>
                         ) : (
-                            <div className={`inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r ${product.gradient} text-white font-bold text-base shadow-xl opacity-80`}>
-                                <Clock className="w-5 h-5" />
+                            <div className={`inline-flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl bg-gradient-to-r ${product.gradient} text-white font-bold text-sm sm:text-base shadow-xl opacity-80`}>
+                                <Clock className="w-4 h-4 sm:w-5 sm:h-5" />
                                 In Development
                             </div>
                         )}
@@ -513,14 +607,14 @@ const FutureProductCard = ({
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className={`relative flex flex-col ${isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-8 lg:gap-10`}
+                className={`relative flex flex-col ${isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-4 lg:gap-10`}
             >
                 {/* Small Card */}
             <div className="w-full lg:w-4/12 relative group">
                 <div className="card-base !p-0">
                     {/* Top bar */}
                     <div className={`h-1 w-full bg-gradient-to-r ${product.gradient}`} />
-                    <div className="p-6 md:p-8">
+                    <div className="p-4 sm:p-6 md:p-8">
                         <div className={`absolute inset-0 bg-gradient-to-br ${product.gradient} opacity-[0.04] group-hover:opacity-[0.1] transition-opacity duration-700`} />
                         <div className={`absolute -right-10 -top-10 w-28 h-28 bg-gradient-to-br ${product.gradient} opacity-20 rounded-full blur-3xl group-hover:opacity-40 transition-all duration-700`} />
 
@@ -537,8 +631,8 @@ const FutureProductCard = ({
                             transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                             className="relative z-10 flex justify-center"
                         >
-                            <div className={`icon-tile icon-tile-md bg-gradient-to-br ${product.gradient} shadow-xl shadow-black/10`}>
-                                <product.icon className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-md relative z-10" />
+                            <div className={`w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl flex items-center justify-center bg-gradient-to-br ${product.gradient} shadow-xl shadow-black/10`}>
+                                <product.icon className="w-6 h-6 md:w-8 md:h-8 text-white drop-shadow-md relative z-10" />
                                 <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent" />
                             </div>
                         </motion.div>
@@ -565,12 +659,12 @@ const FutureProductCard = ({
                     initial={{ opacity: 0, y: 15 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.5, delay: 0.25 }}
-                    className="heading-3"
+                    className="text-xl sm:text-2xl md:text-3xl font-bold"
                 >
                     {product.title}
                 </motion.h3>
 
-                <AnimatedDesc text={product.description} className="text-base text-muted-foreground leading-relaxed" />
+                <AnimatedDesc text={product.description} className="text-sm md:text-base text-muted-foreground leading-relaxed" />
 
                 <motion.div
                     initial={{ opacity: 0, y: 15 }}

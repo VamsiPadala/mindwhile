@@ -58,19 +58,49 @@ const Contact = () => {
     
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "11c32500-2c6c-4b40-ba1e-1d598de4016f",
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || "Not provided",
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
 
-    setIsSuccess(true);
-    toast({
-      title: "Message Sent Successfully!",
-      description: "We'll get back to you within 24 hours.",
-    });
+      const result = await response.json();
 
-    setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-    setIsSubmitting(false);
-
-    setTimeout(() => setIsSuccess(false), 5000);
+      if (result.success) {
+        setIsSuccess(true);
+        toast({
+          title: "Message Sent Successfully!",
+          description: "We'll get back to you within 24 hours.",
+        });
+        setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+      } else {
+        toast({
+          title: "Submission Failed",
+          description: result.message || "Something went wrong. Please try again.",
+          variant: "destructive"
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Network Error",
+        description: "Failed to send message. Please check your connection.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setIsSuccess(false), 5000);
+    }
   };
 
   return (
@@ -93,11 +123,11 @@ const Contact = () => {
               <span className="text-caption bg-primary/10 text-primary px-4 py-2 rounded-full mb-4 inline-block">
                 Contact Us
               </span>
-              <h1 className="heading-1 mb-6">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 lg:mb-6 leading-tight tracking-tight text-foreground">
                 Let's Start a
-                <span className="gradient-text block">Conversation</span>
+                <span className="gradient-text block mt-1">Conversation</span>
               </h1>
-              <p className="text-body max-w-3xl mx-auto">
+              <p className="text-body text-sm md:text-base max-w-3xl mx-auto">
                 Ready to transform your business? Book a free technical consultation today. We'll discuss your requirements, provide a detailed project roadmap, and show you how our expertise can drive your growth.
               </p>
             </motion.div>
@@ -118,7 +148,7 @@ const Contact = () => {
                 className="relative group"
               >
                 <div className="absolute -inset-1 bg-gradient-to-br from-primary/30 to-accent/30 rounded-[2.5rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                <div className="card-base !p-8 md:!p-10 relative">
+                <div className="card-base !p-5 md:!p-10 relative">
                   <h2 className="heading-2 mb-2">Send us a Message</h2>
                   <p className="text-body mb-8">
                     Fill out the form below and we'll get back to you as soon as possible.
@@ -154,7 +184,7 @@ const Contact = () => {
                               setFormData({ ...formData, name: e.target.value });
                               if (errors.name) setErrors({ ...errors, name: '' });
                             }}
-                            className={`h-14 rounded-xl bg-background/50 transition-colors ${errors.name ? 'border-red-500 focus:border-red-500 ring-red-500' : 'border-border focus:border-primary'}`}
+                            className={`h-12 md:h-14 rounded-xl bg-background/50 transition-colors ${errors.name ? 'border-red-500 focus:border-red-500 ring-red-500' : 'border-border focus:border-primary'}`}
                           />
                           {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
                         </div>
@@ -171,7 +201,7 @@ const Contact = () => {
                               setFormData({ ...formData, email: e.target.value });
                               if (errors.email) setErrors({ ...errors, email: '' });
                             }}
-                            className={`h-14 rounded-xl bg-background/50 transition-colors ${errors.email ? 'border-red-500 focus:border-red-500 ring-red-500' : 'border-border focus:border-primary'}`}
+                            className={`h-12 md:h-14 rounded-xl bg-background/50 transition-colors ${errors.email ? 'border-red-500 focus:border-red-500 ring-red-500' : 'border-border focus:border-primary'}`}
                           />
                           {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                         </div>
@@ -191,7 +221,7 @@ const Contact = () => {
                               setFormData({ ...formData, phone: e.target.value });
                               if (errors.phone) setErrors({ ...errors, phone: '' });
                             }}
-                            className={`h-14 rounded-xl bg-background/50 transition-colors ${errors.phone ? 'border-red-500 focus:border-red-500 ring-red-500' : 'border-border focus:border-primary'}`}
+                            className={`h-12 md:h-14 rounded-xl bg-background/50 transition-colors ${errors.phone ? 'border-red-500 focus:border-red-500 ring-red-500' : 'border-border focus:border-primary'}`}
                           />
                           {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
                         </div>
@@ -208,7 +238,7 @@ const Contact = () => {
                               setFormData({ ...formData, subject: e.target.value });
                               if (errors.subject) setErrors({ ...errors, subject: '' });
                             }}
-                            className={`h-14 rounded-xl bg-background/50 transition-colors ${errors.subject ? 'border-red-500 focus:border-red-500 ring-red-500' : 'border-border focus:border-primary'}`}
+                            className={`h-12 md:h-14 rounded-xl bg-background/50 transition-colors ${errors.subject ? 'border-red-500 focus:border-red-500 ring-red-500' : 'border-border focus:border-primary'}`}
                           />
                           {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject}</p>}
                         </div>
@@ -235,7 +265,7 @@ const Contact = () => {
                       <Button
                         type="submit"
                         disabled={isSubmitting}
-                        className="btn-primary w-full h-14 text-lg group"
+                        className="btn-primary w-full h-12 md:h-14 text-base md:text-lg group"
                       >
                         {isSubmitting ? (
                           <>
@@ -270,11 +300,11 @@ const Contact = () => {
                 <div className="space-y-6 mb-10">
                   <motion.div
                     whileHover={{ x: 8 }}
-                    className="flex items-center gap-6 p-6 card-base group hover:border-primary/30 relative overflow-hidden"
+                    className="flex items-center gap-4 md:gap-6 p-4 md:p-6 card-base group hover:border-primary/30 relative overflow-hidden"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="icon-tile icon-tile-md bg-gradient-primary shrink-0 group-hover:scale-110 transition-transform duration-500">
-                      <MapPin className="w-8 h-8 text-white relative z-10" />
+                    <div className="icon-tile icon-tile-sm md:icon-tile-md bg-gradient-primary shrink-0 group-hover:scale-110 transition-transform duration-500">
+                      <MapPin className="w-5 h-5 md:w-8 md:h-8 text-white relative z-10" />
                       <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent" />
                     </div>
                     <div>
@@ -288,17 +318,17 @@ const Contact = () => {
 
                   <motion.div
                     whileHover={{ x: 8 }}
-                    className="flex items-center gap-6 p-6 card-base group hover:border-accent2/30 relative overflow-hidden"
+                    className="flex items-center gap-4 md:gap-6 p-4 md:p-6 card-base group hover:border-accent2/30 relative overflow-hidden"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-accent2/0 via-accent2/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="icon-tile icon-tile-md bg-gradient-accent2 shrink-0 group-hover:scale-110 transition-transform duration-500">
-                      <Mail className="w-8 h-8 text-white relative z-10" />
+                    <div className="icon-tile icon-tile-sm md:icon-tile-md bg-gradient-accent2 shrink-0 group-hover:scale-110 transition-transform duration-500">
+                      <Mail className="w-5 h-5 md:w-8 md:h-8 text-white relative z-10" />
                       <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent" />
                     </div>
                     <div className="flex flex-col">
                       <h4 className="heading-3 mb-1 text-lg">Email Us</h4>
-                      <a href="mailto:info@mindwhile.com" className="text-primary group-hover:text-purple-500 transition-colors text-lg font-medium">
-                        info@mindwhile.com
+                      <a href="mailto:mindwhile.itsolutionspvtltd@mindwhile.com" className="text-primary group-hover:text-purple-500 transition-colors text-xs sm:text-sm font-medium break-all">
+                        mindwhile.itsolutionspvtltd@mindwhile.com
                       </a>
                       <p className="text-caption mt-1">We reply within 24 hours</p>
                     </div>
@@ -306,11 +336,11 @@ const Contact = () => {
 
                   <motion.div
                     whileHover={{ x: 8 }}
-                    className="flex items-center gap-6 p-6 card-base group hover:border-accent1/30 relative overflow-hidden"
+                    className="flex items-center gap-4 md:gap-6 p-4 md:p-6 card-base group hover:border-accent1/30 relative overflow-hidden"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-accent1/0 via-accent1/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="icon-tile icon-tile-md bg-gradient-accent1 shrink-0 group-hover:scale-110 transition-transform duration-500">
-                      <Phone className="w-8 h-8 text-white relative z-10" />
+                    <div className="icon-tile icon-tile-sm md:icon-tile-md bg-gradient-accent1 shrink-0 group-hover:scale-110 transition-transform duration-500">
+                      <Phone className="w-5 h-5 md:w-8 md:h-8 text-white relative z-10" />
                       <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent" />
                     </div>
                     <div className="flex flex-col">
@@ -378,7 +408,7 @@ const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="rounded-3xl overflow-hidden h-[450px] md:h-[500px] bg-secondary/30 relative card-base !p-0 shadow-2xl group"
+              className="rounded-3xl overflow-hidden h-[300px] md:h-[500px] bg-secondary/30 relative card-base !p-0 shadow-2xl group"
             >
               {/* Added Google Maps Iframe */}
               <iframe

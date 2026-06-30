@@ -5,9 +5,9 @@ export const Footer = () => {
   return (
     <footer className="bg-foreground text-background">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-4 gap-y-8 md:gap-10">
           {/* Company Info */}
-          <div className="lg:col-span-1">
+          <div className="col-span-2 md:col-span-4 lg:col-span-1">
             <div className="flex flex-col items-start leading-none gap-[2px] mb-6">
               <span className="font-sans font-extrabold text-2xl tracking-widest text-primary uppercase">MINDWHILE</span>
               <span className="font-sans font-semibold text-[10px] tracking-[0.15em] text-foreground/70 uppercase">IT Solutions Pvt.Ltd</span>
@@ -32,8 +32,11 @@ export const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="font-semibold text-lg mb-6">Quick Links</h4>
+          <div className="col-span-1 bg-background/5 border border-background/10 rounded-2xl p-4 md:p-6 hover:bg-background/10 transition-colors">
+            <h4 className="font-semibold text-base md:text-lg mb-3 md:mb-6 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
+              Quick Links
+            </h4>
             <ul className="space-y-3">
               <li>
                 <Link to="/" className="text-background/70 hover:text-primary transition-colors">Home</Link>
@@ -54,8 +57,11 @@ export const Footer = () => {
           </div>
 
           {/* Our Products */}
-          <div>
-            <h4 className="font-semibold text-lg mb-6">Our Products</h4>
+          <div className="col-span-1 bg-background/5 border border-background/10 rounded-2xl p-4 md:p-6 hover:bg-background/10 transition-colors">
+            <h4 className="font-semibold text-base md:text-lg mb-3 md:mb-6 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
+              Our Products
+            </h4>
             <ul className="space-y-3">
               <li>
                 <Link to="/products" className="text-background/70 hover:text-primary transition-colors">School Management</Link>
@@ -73,8 +79,11 @@ export const Footer = () => {
           </div>
 
           {/* Future Projects */}
-          <div>
-            <h4 className="font-semibold text-lg mb-6">Future Projects</h4>
+          <div className="col-span-1 bg-background/5 border border-background/10 rounded-2xl p-4 md:p-6 hover:bg-background/10 transition-colors">
+            <h4 className="font-semibold text-base md:text-lg mb-3 md:mb-6 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
+              Future Projects
+            </h4>
             <ul className="space-y-3">
               <li>
                 <Link to="/products" className="text-background/70 hover:text-primary transition-colors">Matrimony App</Link>
@@ -102,8 +111,11 @@ export const Footer = () => {
 
 
           {/* Services */}
-          <div>
-            <h4 className="font-semibold text-lg mb-6">Services</h4>
+          <div className="col-span-1 bg-background/5 border border-background/10 rounded-2xl p-4 md:p-6 hover:bg-background/10 transition-colors">
+            <h4 className="font-semibold text-base md:text-lg mb-3 md:mb-6 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
+              Services
+            </h4>
             <ul className="space-y-3">
               <li><Link to="/services?view=website" className="text-background/70 hover:text-primary transition-colors block">Website Development</Link></li>
               <li><Link to="/services?view=ui-ux" className="text-background/70 hover:text-primary transition-colors block">UI/UX Design</Link></li>
@@ -114,8 +126,8 @@ export const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div>
-            <h4 className="font-semibold text-lg mb-6">Contact Us</h4>
+          <div className="col-span-2 md:col-span-4 lg:col-span-1">
+            <h4 className="font-semibold text-base md:text-lg mb-3 md:mb-6">Contact Us</h4>
             <ul className="space-y-5">
               <li>
                 <p className="text-background/50 text-xs font-semibold uppercase tracking-widest mb-2">Current Address</p>
@@ -128,8 +140,8 @@ export const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary shrink-0" />
-                <a href="mailto:info@mindwhile.com" className="text-background/70 hover:text-primary transition-colors">
-                  info@mindwhile.com
+                <a href="mailto:mindwhile.itsolutionspvtltd@mindwhile.com" className="text-background/70 hover:text-primary transition-colors text-xs sm:text-sm break-all">
+                  mindwhile.itsolutionspvtltd@mindwhile.com
                 </a>
               </li>
               <li className="flex items-center gap-3">

@@ -19,16 +19,47 @@ export const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "11c32500-2c6c-4b40-ba1e-1d598de4016f",
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || "Not provided",
+          subject: "Message from Home Page Contact Form",
+          message: formData.message,
+        }),
+      });
 
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
-    });
+      const result = await response.json();
 
-    setFormData({ name: '', email: '', phone: '', message: '' });
-    setIsSubmitting(false);
+      if (result.success) {
+        toast({
+          title: "Message Sent Successfully!",
+          description: "We'll get back to you within 24 hours.",
+        });
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        toast({
+          title: "Submission Failed",
+          description: result.message || "Something went wrong. Please try again.",
+          variant: "destructive"
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Network Error",
+        description: "Failed to send message. Please check your connection.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -164,8 +195,8 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="heading-3 mb-1 text-lg">Email Us</h4>
-                  <a href="mailto:info@mindwhile.com" className="text-primary hover:underline font-medium">
-                    info@mindwhile.com
+                  <a href="mailto:mindwhile.itsolutionspvtltd@mindwhile.com" className="text-primary hover:underline font-medium text-xs sm:text-sm break-all">
+                    mindwhile.itsolutionspvtltd@mindwhile.com
                   </a>
                 </div>
               </motion.div>
@@ -180,8 +211,8 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="heading-3 mb-1 text-lg">Call Us</h4>
-                  <a href="tel:+919494022475" className="text-primary hover:underline font-medium font-mono">
-                    +91 94940 22475
+                  <a href="tel:+917995526153" className="text-primary hover:underline font-medium font-mono">
+                    +91 79955 26153
                   </a>
                 </div>
               </motion.div>
