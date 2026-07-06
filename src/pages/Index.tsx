@@ -2,6 +2,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { FloatingActionButton } from '@/components/FloatingActionButton';
 import { Hero } from '@/components/home/Hero';
+import { AIPoweredInnovation } from '@/components/home/AIPoweredInnovation';
 import { ClientLogos } from '@/components/home/ClientLogos';
 import { IndustrySolutions } from '@/components/home/IndustrySolutions';
 import { ProcessSection } from '@/components/home/ProcessSection';
@@ -18,6 +19,7 @@ const Index = () => {
       <FloatingActionButton />
       <main>
         <Hero />
+        <AIPoweredInnovation />
         <ClientLogos />
         <IndustrySolutions />
         <ProcessSection />
