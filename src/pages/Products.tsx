@@ -201,7 +201,7 @@ const products = [
             { label: 'Partners', value: '15+' },
             { label: 'Processing', value: '24/7' },
         ],
-        exploreLink: 'https://rakshaasaiat.com',
+        exploreLink: 'https://rakshaassist.com/',
         brief: 'Raksha Assist transforms health insurance management by providing a centralized, user-friendly portal. Users can easily manage policies, submit and track claims in real-time, and access a comprehensive healthcare network with 24/7 assistance and transparent data security.',
     },
 ];
@@ -703,33 +703,42 @@ const Products = () => {
             <FloatingActionButton />
 
             <main className="pt-20">
-                {/* ━━ PRODUCTS SECTION ━━ */}
+                {/* ━━ HERO SECTION ━━ */}
                 <section className="section-padding relative overflow-hidden">
+                    <div 
+                        className="absolute inset-0 bg-cover bg-center bg-no-repeat hue-rotate-15"
+                        style={{ backgroundImage: "url('/about_background.png')" }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/5 to-purple-500/5 mix-blend-multiply" />
                     <div className="absolute top-1/4 left-0 w-[600px] h-[600px] bg-primary/4 rounded-full blur-[80px] opacity-70 pointer-events-none" />
                     <div className="absolute bottom-1/4 right-0 w-[600px] h-[600px] bg-accent/4 rounded-full blur-[80px] opacity-70 pointer-events-none" />
 
                     <div className="container mx-auto px-4 relative z-10">
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
-                            className="text-center mb-16 max-w-3xl mx-auto"
+                            className="text-center max-w-4xl mx-auto"
                         >
-                            <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-sm font-semibold tracking-wide uppercase mb-6 shadow-sm">
+                            <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold tracking-wide uppercase mb-6 shadow-sm backdrop-blur-sm">
                                 <Star className="w-4 h-4" />
-                                Live Products
+                                Our Portfolio
                             </span>
-                            <h2 className="heading-2 mb-6">
+                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight tracking-tight text-foreground">
                                 Products That
                                 <br className="hidden md:block" />
                                 <span className="gradient-text"> Drive Results</span>
-                            </h2>
-                            <p className="text-body max-w-2xl mx-auto">
-                                Each product is meticulously crafted with cutting-edge technology, intuitive design, and scalable architecture to deliver exceptional value.
+                            </h1>
+                            <p className="text-body text-base md:text-lg max-w-3xl mx-auto">
+                                Each product is meticulously crafted with cutting-edge technology, intuitive design, and scalable architecture to deliver exceptional value and transform industries.
                             </p>
                         </motion.div>
+                    </div>
+                </section>
 
+                {/* ━━ PRODUCTS LIST SECTION ━━ */}
+                <section className="section-padding relative">
+                    <div className="container mx-auto px-4 relative z-10">
                         <div className="space-y-16 py-8">
                             {products.map((product, index) => (
                                 <ProductCard

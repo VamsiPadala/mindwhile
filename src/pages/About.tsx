@@ -94,7 +94,11 @@ const About = () => {
 
         {/* ━━ HERO ━━ */}
         <section className="section-padding relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: "url('/about_background.png')" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 mix-blend-overlay" />
           <motion.div animate={{ scale: [1, 1.15, 1], opacity: [0.06, 0.14, 0.06] }} transition={{ duration: 8, repeat: Infinity }} className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[80px] opacity-70 pointer-events-none" />
           <motion.div animate={{ scale: [1.1, 1, 1.1], opacity: [0.04, 0.10, 0.04] }} transition={{ duration: 10, repeat: Infinity }} className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[80px] opacity-70 pointer-events-none" />
 

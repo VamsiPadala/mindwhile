@@ -111,6 +111,11 @@ const Contact = () => {
       <main className="pt-24">
         {/* Hero Section */}
         <section className="section-padding relative overflow-hidden bg-background">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat -hue-rotate-15"
+            style={{ backgroundImage: "url('/about_background.png')" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-bl from-cyan-500/10 to-blue-500/10 mix-blend-overlay" />
           <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[80px] opacity-70 pointer-events-none mix-blend-screen" />
           <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[80px] opacity-70 pointer-events-none mix-blend-screen" />
           <div className="container mx-auto px-4 relative z-10">
