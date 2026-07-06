@@ -38,15 +38,33 @@ export const FloatingActionButton = () => {
     setMessages(prev => [...prev, newUserMsg]);
     setInputValue('');
 
-    // Simulate bot response
+    // Simulate bot response with basic NLP/Intent matching
     setTimeout(() => {
+      const lowerInput = inputValue.toLowerCase();
+      let botResponse = "";
+
+      if (/(hi|hello|hey|greetings|morning|afternoon)/i.test(lowerInput)) {
+        botResponse = "Hi, thanks for contacting MindWhile IT Support! How can we help you today?";
+      } else if (/(bye|goodbye|see you|cya|thanks|thank you)/i.test(lowerInput)) {
+        botResponse = "Have a nice day! Feel free to reach out anytime.";
+      } else if (/(product|prodct|service|offer|do you|what can you|ai|web|app|software|develop|design|cloud|solution)/i.test(lowerInput)) {
+        botResponse = "MindWhile IT Solutions specializes in AI-powered software, custom web applications, mobile apps, and enterprise cloud solutions. You can explore our Services section for more details!";
+      } else if (/(price|cost|quote|how much|fee)/i.test(lowerInput)) {
+        botResponse = "Our pricing is tailored to your specific project needs. Please leave your email or call us for a detailed quote.";
+      } else if (/(who are you|about|company|mindwhile|contact|phone|email)/i.test(lowerInput)) {
+        botResponse = "We are MindWhile IT Solutions, a team of passionate developers and AI engineers. You can reach us at +91 79955 26153 or visit our Contact page.";
+      } else {
+        // Fallback for out-of-scope or unhandled queries
+        botResponse = "I might not have the answer for that right now. For detailed inquiries, please contact us directly at +91 79955 26153 or visit our Contact page.";
+      }
+
       setMessages(prev => [...prev, {
         id: Date.now() + 1,
-        text: "Thanks for reaching out! Our team has been notified and will connect with you shortly. For immediate assistance, you can also call us at +91 79955 26153.",
+        text: botResponse,
         sender: 'bot',
         time: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
       }]);
-    }, 1500);
+    }, 1000);
   };
 
   return (

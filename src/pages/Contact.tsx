@@ -14,7 +14,7 @@ import {
   CheckCircle,
   Facebook,
   Twitter,
-  Youtube,
+  Linkedin,
   Instagram
 } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
@@ -396,10 +396,10 @@ const Contact = () => {
                         hoverStyle: 'hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2] hover:shadow-[0_0_15px_rgba(24,119,242,0.5)] group'
                       },
                       { 
-                        icon: Youtube, 
+                        icon: Linkedin, 
                         href: '#', 
-                        name: 'YouTube',
-                        hoverStyle: 'hover:bg-[#FF0000] hover:text-white hover:border-[#FF0000] hover:shadow-[0_0_15px_rgba(255,0,0,0.5)] group'
+                        name: 'LinkedIn',
+                        hoverStyle: 'hover:bg-[#0A66C2] hover:text-white hover:border-[#0A66C2] hover:shadow-[0_0_15px_rgba(10,102,194,0.5)] group'
                       },
                       { 
                         icon: ({ className }: { className?: string }) => (
