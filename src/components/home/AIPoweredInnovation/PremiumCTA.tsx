@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Calendar } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export const PremiumCTA = () => {
+  const navigate = useNavigate();
+
   return (
     <motion.div 
       className="relative z-20 max-w-5xl mx-auto"
@@ -29,25 +32,14 @@ export const PremiumCTA = () => {
         <div className="flex flex-col sm:flex-row gap-6 pt-4">
           {/* Primary Button */}
           <motion.button 
+            onClick={() => navigate('/contact')}
             className="group relative px-8 py-4 bg-white text-slate-900 font-semibold rounded-full overflow-hidden flex items-center justify-center gap-2"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-blue-100 to-cyan-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <span className="relative">Start Your AI Project</span>
+            <span className="relative">Start Your AI Application</span>
             <ArrowRight className="w-5 h-5 relative group-hover:translate-x-1 transition-transform" />
-          </motion.button>
-
-          {/* Secondary Button */}
-          <motion.button 
-            className="group relative px-8 py-4 bg-transparent text-white font-semibold rounded-full overflow-hidden flex items-center justify-center gap-2 border border-slate-600 hover:border-slate-400 transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {/* Animated glowing border effect on hover inside the button */}
-            <div className="absolute inset-0 bg-slate-800/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <Calendar className="w-5 h-5 relative" />
-            <span className="relative">Schedule a Consultation</span>
           </motion.button>
         </div>
       </div>

@@ -14,7 +14,7 @@ import {
   CheckCircle,
   Facebook,
   Twitter,
-  Linkedin,
+  Youtube,
   Instagram
 } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
@@ -383,19 +383,43 @@ const Contact = () => {
                   <h4 className="heading-3 text-base mb-4">Follow Us</h4>
                   <div className="flex gap-4">
                     {[
-                      { icon: Facebook, href: '#', name: 'Facebook' },
-                      { icon: Twitter, href: '#', name: 'Twitter' },
-                      { icon: Linkedin, href: '#', name: 'LinkedIn' },
-                      { icon: Instagram, href: '#', name: 'Instagram' },
+                      { 
+                        icon: Instagram, 
+                        href: '#', 
+                        name: 'Instagram',
+                        hoverStyle: 'hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#dc2743] hover:to-[#bc1888] hover:text-white hover:border-transparent hover:shadow-[0_0_15px_rgba(220,39,67,0.5)] group'
+                      },
+                      { 
+                        icon: Facebook, 
+                        href: '#', 
+                        name: 'Facebook',
+                        hoverStyle: 'hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2] hover:shadow-[0_0_15px_rgba(24,119,242,0.5)] group'
+                      },
+                      { 
+                        icon: Youtube, 
+                        href: '#', 
+                        name: 'YouTube',
+                        hoverStyle: 'hover:bg-[#FF0000] hover:text-white hover:border-[#FF0000] hover:shadow-[0_0_15px_rgba(255,0,0,0.5)] group'
+                      },
+                      { 
+                        icon: ({ className }: { className?: string }) => (
+                          <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
+                            <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"></path>
+                          </svg>
+                        ), 
+                        href: '#', 
+                        name: 'X (Twitter)',
+                        hoverStyle: 'hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black hover:border-black dark:hover:border-white hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] group'
+                      },
                     ].map((social, index) => (
                       <motion.a
                         key={index}
                         href={social.href}
                         aria-label={`Visit our ${social.name} page`}
-                        whileHover={{ y: -3 }}
-                        className="w-12 h-12 rounded-xl card-base flex items-center justify-center hover:bg-primary/10 transition-colors"
+                        whileHover={{ y: -5, scale: 1.05 }}
+                        className={`relative w-12 h-12 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm flex items-center justify-center transition-all duration-300 ${social.hoverStyle}`}
                       >
-                        <social.icon className="w-5 h-5 text-foreground" />
+                        <social.icon className="w-5 h-5 text-slate-400 group-hover:text-white dark:group-hover:text-inherit transition-colors duration-300" />
                       </motion.a>
                     ))}
                   </div>
